@@ -19,4 +19,20 @@
   --color-warning-content: #0b0b0b;
   --color-error: #ffc5c5;
   --color-error-content: #0b0b0b;
+
+  --margin-none: 0;
+  --margin-sm: 8px;
+  --margin-md: 15px;
+  --margin-lg: 24px;
+
+  --padding-none: 0;
+  --padding-sm: 4px;
+  --padding-md: 15px;
+  --padding-lg: 24px;
+
+
+  --box-shadow-sm: 0 3px 6px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
+  --box-shadow-md: 0 6px 10px rgba(0, 0, 0, .12), 0 3px 6px rgba(0, 0, 0, .24);
+  --box-shadow-lg: 0 10px 20px rgba(0, 0, 0, .12);
 }
+

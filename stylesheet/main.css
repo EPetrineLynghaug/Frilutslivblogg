@@ -1,4 +1,6 @@
 @import url('./colors.css');
+/*Iconer*/
+@import url("https://www.nerdfonts.com/assets/css/webfont.css");
 
 * {
     box-sizing: border-box;
@@ -12,9 +14,62 @@ body {
     padding: 0;
 }
 
+/*Mobile first*/
 app-navbar {
     width: 100%;
-    border: 2px solid red;
     display: flex;
     justify-content: space-between;
+    background-color: var(--color-primary);
 }
+app-navbar nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: var(--padding-sm);
+}
+
+#menuToggle {
+    padding: var(--padding-sm) var(--padding-md);
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-content);
+    border: 2px solid var(--color-secondary);
+    border-radius: 4px;
+
+}
+
+.dropdown{
+    position: absolute;
+    top: 110%;
+    right: 0;
+    min-width: 150px;
+    background-color: var(--color-base-200);
+    box-shadow: var(--box-shadow-md);
+}
+
+.dropdown ul{
+    list-style: none;
+    padding: var(--none);
+    margin: var(--none);
+}
+
+.dropdown li{
+    padding: var(--none);
+    margin: var(--none);
+}
+
+.dropdown li a{
+    text-decoration: none;
+    display: block;
+    line-height: 1.2;
+    color: var(--color-neutral);
+    text-align: center;
+    padding: var(--padding-sm);
+}
+
+.dropdown li a:hover{
+    color: var(--color-secondary);
+    background-color: var(--color-neutral);   
+}
+
+
