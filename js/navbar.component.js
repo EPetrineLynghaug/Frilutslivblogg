@@ -60,6 +60,7 @@ class Navbar extends HTMLElement {
 
   listener(){
     let menuButton = this.querySelector("#menuToggle");
+    let dropdownMenu = this.querySelector(".dropdown")
     
     menuButton.addEventListener("click", (event) => {
       event.preventDefault();
@@ -68,8 +69,10 @@ class Navbar extends HTMLElement {
 
       if (this.menuOpen) {
         menuButton.innerHTML = '<i class="nf nf-md-close"></i> Meny';
+        dropdownMenu.classList.add("open");
       } else {
         menuButton.innerHTML = '<i class="nf nf-md-menu"></i> Meny'
+        dropdownMenu.classList.remove("open");
       }
     });
 
