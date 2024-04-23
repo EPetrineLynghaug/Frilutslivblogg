@@ -18,9 +18,11 @@ body {
     font-family: 'Helvetica', sans-serif;
 }
 
-h1 h2 h3{
+h1, 
+h2,
+h3 {
     font-family: 'Roboto Slab', serif;
-    font-weight: 800;/*Hva er feil?*/
+    font-weight: 900;
 }
 
 .nf-md-menu .nf-md-close .nf-fa-chevron_right{
@@ -100,50 +102,68 @@ height: 250px;
 background-color: var(--color-primary);
 min-width: 200px;
 }
-
-.prev {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-}
-
+.prev, 
 .next {
     position: absolute;
     top: 50%;
-    right: 0;
     transform: translateY(-50%);
- }
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    font-size: 1.2em;
+}
+.prev {left: 12px;}
+.next {right: 12px;}
 
 .indicators {
     position: absolute;
-    bottom: -10px;
+    bottom: -30px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
+    align-items: center;
 }
 .indicator {
-    width: 64px;
-    height: 64px;
-    border-radius: 64px;
-    background-color: var(--color-info-content);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
     cursor: pointer;
-    box-shadow: var(--box-shadow-lg);
     margin: 0 4px;
+    overflow: hidden;
+    border: 2px solid var(--color-base-300);
+    box-shadow: var(--box-shadow-sm);
+}
+.indicator.active {
+    height: 64px;
+    width: 64px;
+}
+.indicator img {
+ height: 100%;
+ width: 100%;
+ object-fit: cover;
 }
 .carousel .slide .caption {
     position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0 , 0, 0, 0.5);
+    color: white;
   }
   
 
   .carousel .slide .caption h2,
   .carousel .slide .caption p {
     margin: 0 auto; 
-    max-width: 80%;
+    max-width: 60%;
   }
    .caption h2 {
     font-size: 24px; 
@@ -154,7 +174,7 @@ min-width: 200px;
 
   /*H3 overskift */
   .eventyrer{
-    margin-top: 34px;
+    margin-top: 64px;
     text-align: center;
   }
 
@@ -162,9 +182,13 @@ min-width: 200px;
     background-color: var(--color-secondary);
     height: 2px;
     width: 50%;
-    margin: -10px auto; 
+    margin: 0 auto;
   }
-
+  .dividerfooter{
+    background-color: var(--color-secondary);
+    height: 4px;
+    width: 100%;
+  }
   /*Blogpost card*/
   .card-container {
     width: 80%;
@@ -248,7 +272,7 @@ min-width: 200px;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Legg til denne linjen for å plassere Author og Tags ved siden av hverandre */
+    align-items: center;
     position: absolute;
     bottom: 0;
     border-top: 1px solid rgba(0, 0, 0, .2);
