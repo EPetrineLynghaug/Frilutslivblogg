@@ -96,11 +96,26 @@ app-navbar nav {
 
 /*Karusellen*/
 .carousel {
-position: relative;
-width: 100%;
-height: 250px;
-background-color: var(--color-primary);
-min-width: 200px;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background-color: var(--color-primary);
+    border: 2px solid red;
+}
+.carousel .slide {
+    position: relative;
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+.carousel .slide.active {
+    display: block;
+}
+.carousel .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .prev, 
 .next {

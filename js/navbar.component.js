@@ -54,7 +54,6 @@ class Navbar extends HTMLElement {
           </ul>
         </div>
       </nav>
-
     `;
   }//render//
 
