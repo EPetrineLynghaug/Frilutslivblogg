@@ -142,13 +142,11 @@ class Carousel extends HTMLElement {
     this.addEventListener(`mouseover`, (event) => {
      event.preventDefault();
      this.autoPlay =false;
-     console.log("stop autoplay on cs")
     });
 
     this.addEventListener(`mouseout`, (event) => {
       event.preventDefault();
       this.autoPlay = true;
-      console.log("started autoplay on cs")
      });
 
   
