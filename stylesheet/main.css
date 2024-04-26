@@ -367,3 +367,29 @@ app-navbar nav {
 .post-content .body-content .post-content .author .tags-container .tags ul li:hover:before {
     height: 18px;
 } 
+
+/*Knapper*/
+.btn {
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 3px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+    line-height: 1;
+    transition-duration: 0.2s;
+}
+
+.btn.app-btn {
+    background-color: var(--color-info);
+    color: var(--color-info-content);
+}
+
+.btn.app-btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-info); 
+}
+
+
