@@ -6,16 +6,19 @@ class Carousel extends HTMLElement {
       this.activeSlideIndex = 0;
       this.slides = [
         {
+          id: '1',
           img: 'https://plus.unsplash.com/premium_photo-1663933534267-fe6969cd26e1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
           title: 'Slide 1',
           desc: 'this is slide 1',
         },
         {
+          id: '2',
           img: 'https://plus.unsplash.com/premium_photo-1663933534267-fe6969cd26e1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
           title: 'Slide 2',
           desc: 'this is slide 2',
         },
         {
+          id: '3',
           img: 'https://plus.unsplash.com/premium_photo-1663933534267-fe6969cd26e1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
           title: 'Slide 3',
           desc: 'this is slide 3',
@@ -36,6 +39,7 @@ class Carousel extends HTMLElement {
         <div class="caption">
           <h2>${slide.title}</h2>
           <p>${slide.desc}</p>
+          <a href="post.html?id=${slide.id}" class="btn app-btn-info">Les mer</a>
         </div>
       </div>
     `;
