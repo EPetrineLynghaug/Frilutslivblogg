@@ -2,6 +2,7 @@ class Carousel extends HTMLElement {
   constructor() {
       super();
 
+      this.autoPlay = true;
       this.activeSlideIndex = 0;
       this.slides = [
         {
@@ -25,6 +26,7 @@ class Carousel extends HTMLElement {
   connectedCallback() {
     this.render();
     this.listener();
+    
   }
 
   newSlide(slide) {
@@ -65,7 +67,40 @@ class Carousel extends HTMLElement {
     `;
   } // render()
 
-updateSlides(allSlides, allIndicators) {
+  nextSlide(allSlides, allIndicators){
+
+    if (this.activeSlideIndex < allSlides.length - 1) {
+      this.activeSlideIndex++;
+    }else{
+      this.activeSlideIndex = 0;
+    }
+
+      this.updateSlides(allSlides, allIndicators);
+  }
+
+  prevSlide(allSlides, allIndicators){
+    if (this.activeSlideIndex > 0) { // 0, 1, 2
+      this.activeSlideIndex--;
+    } else {
+      this.activeSlideIndex = allSlides.length - 1; // 1, 2, 3
+    }
+
+    this.updateSlides(allSlides, allIndicators);
+  }
+
+
+  autoSlider(allSlides, allIndicators) {
+    setInterval(() => {
+      if(this.autoPlay){
+        this.nextSlide(allSlides,allIndicators)
+      }
+    }, 5000);
+  }
+
+ 
+
+
+  updateSlides(allSlides, allIndicators) {
   allSlides.forEach((slide, index) => {
     if (index === this.activeSlideIndex) {
       slide.classList.add('active');
@@ -94,31 +129,32 @@ updateSlides(allSlides, allIndicators) {
 
     prevButton.addEventListener('click', (event) => {
       event.preventDefault();
-
-      if (this.activeSlideIndex > 0) { // 0, 1, 2
-        this.activeSlideIndex--;
-      } else {
-        this.activeSlideIndex = allSlides.length - 1; // 1, 2, 3
-      }
-
-      this.updateSlides(allSlides, allIndicators);
+      this.prevSlide(allSlides, allIndicators);
     });
 
     nextButton.addEventListener('click', (event) => {
       event.preventDefault();
-
-
-      if (this.activeSlideIndex < allSlides.length - 1) {
-        this.activeSlideIndex++;
-      }else{
-        this.activeSlideIndex = 0;
-      }
-
-      this.updateSlides(allSlides, allIndicators);
+      this.nextSlide(allSlides, allIndicators);
     });
 
+    this.autoSlider(allSlides, allIndicators);
+
+    this.addEventListener(`mouseover`, (event) => {
+     event.preventDefault();
+     this.autoPlay =false;
+     console.log("stop autoplay on cs")
+    });
+
+    this.addEventListener(`mouseout`, (event) => {
+      event.preventDefault();
+      this.autoPlay = true;
+      console.log("started autoplay on cs")
+     });
+
+  
   }
 
 } //klasse karusell //
 
 export default Carousel;
+
