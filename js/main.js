@@ -4,6 +4,7 @@
 import Navbar from './navbar.component.js';
 import Carousel from './carousel.component.js';
 import Card from './card.component.js';
+import login from './login.component.js'
 
 let baseUrl = "https://v2.api.noroff.dev/";
 let postContainer = document.querySelector(".post-container");
