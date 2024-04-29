@@ -5,7 +5,7 @@ class Navbar extends HTMLElement {
     super();
     this.menuOpen = false;
 
-    this.branding = 'Friluftsliv';
+    
     this.menu = [
       {
         text: 'Hjem',
@@ -35,7 +35,6 @@ class Navbar extends HTMLElement {
   render() {
     this.innerHTML = `
       <div class="branding">
-        ${this.branding}
       </div>
 
       <nav>
