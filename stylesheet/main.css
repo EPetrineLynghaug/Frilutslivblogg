@@ -373,6 +373,13 @@ app-navbar nav {
     background-color: var(--color-base-100);
     color: var(--color-success); 
 }
+.post-btn, .slett-btn{
+    width: 40%;
+    background-color: var(--color-success);
+}
+.slett-btn{
+    background-color: var(--color-error);
+}
 
 /*LOGIN*/
 .login, .register {
@@ -425,3 +432,58 @@ app-navbar nav {
 a {
 	color: var(--color-info);
 } 
+
+/*Ny bloggpost*/
+.make-container {
+    width: 350px;
+    height: 550px;
+    background: var(--color-base-200);
+    box-shadow: var(--box-shadow-lg);
+    border-radius: 10px;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+
+  }
+
+  .make-container:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .make-container form {
+    padding: 20px;
+    width: 100%;
+  }
+  textarea {
+    width: calc(100% - 40px);
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 200px;
+    resize: 0;;
+  }
+
+  input[type="text"],
+  textarea,
+  input[type="file"] {
+    width: calc(100% - 40px);
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+ 
+
+
+ 
