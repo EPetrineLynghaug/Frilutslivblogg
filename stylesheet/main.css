@@ -361,10 +361,15 @@ app-navbar nav {
     background-color: var(--color-info);
 }
 .login-btn {
-  width: 100%;
-  background-color: var(--color-success);  
+  width: 35%;
+  background-color: var(--color-success); 
+   
 }
-.login-btn:hover {
+.registrer-btn{
+    width: 100%;
+    background-color: var(--color-success);   
+}
+.login-btn .registrer-btn:hover {
     background-color: var(--color-base-100);
     color: var(--color-success); 
 }
@@ -410,5 +415,13 @@ app-navbar nav {
     padding: 6px 0;
 }
   
+.actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px;
+}
 
-  
+a {
+	color: var(--color-info);
+} 
