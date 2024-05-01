@@ -7,7 +7,7 @@ import Card from './card.component.js';
 import Login from './login.component.js';
 import Register from './register.component.js';
 
-let baseUrl = "https://v2.api.noroff.dev/";
+
 //let postContainer = document.querySelector(".post-container");
 
 customElements.define("app-navbar", Navbar);
