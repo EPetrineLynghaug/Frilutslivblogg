@@ -374,8 +374,9 @@ app-navbar nav {
     color: var(--color-success); 
 }
 .post-btn, .slett-btn{
-    width: 40%;
+    width: 30%;
     background-color: var(--color-success);
+
 }
 .slett-btn{
     background-color: var(--color-error);
@@ -469,7 +470,7 @@ a {
     border-radius: 4px;
     box-sizing: border-box;
     height: 200px;
-    resize: 0;;
+    resize: 0;
   }
 
   input[type="text"],
