@@ -1,10 +1,10 @@
-import Http from "./http.component.js";
+import AuthService from "./auth.service.js";
 
 class Login extends HTMLElement {
   constructor() {
     super();
 
-    this.http = new Http();
+    this.authService = new AuthService();
   }
 
   connectedCallback() {
@@ -60,25 +60,11 @@ class Login extends HTMLElement {
         console.error("Passordet må være mellom 8-20 karrakterer");
       }
 
-      const newRequest = {
-        url: "/auth/login",
-        method: "POST",
-        body: {
-          email: emailInput.value,
-          password: passwordInput.value,
-        },
-      };
-
-      // console.log(newRequest);
-      const response = await this.http.request(newRequest);
-
-      if (response.data.accessToken) {
-        localStorage.setItem(
-          "token",
-          JSON.stringify(response.data.accessToken)
-        );
-
+      if (await this.authService.login(emailInput.value, passwordInput.value)) {
         window.location.href = '/index.html';
+      } else {
+        submitButton.disabled = false;
+        console.log("Feil brukernavn eller passord");
       }
     });
   }
