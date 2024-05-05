@@ -1,4 +1,4 @@
-import AuthService from "./auth.service.js";
+import AuthService from "../services/auth.service.js";
 
 class Login extends HTMLElement {
   constructor() {
