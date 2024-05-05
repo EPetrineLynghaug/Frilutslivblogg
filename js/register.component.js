@@ -36,11 +36,10 @@ class Register extends HTMLElement {
           <button type="button" class="btn registrer-btn">Registrer deg</button>
         </form>
       </div>  
-    `
+    `;
   }
 
   listener() {
-    console.log('button listener');
     const submitButton = this.querySelector(".registrer-btn");
 
     const nameInput = this.querySelector("#Name");
@@ -48,34 +47,40 @@ class Register extends HTMLElement {
     const passwordInput = this.querySelector("#Passord");
 
     const emailRegex = /[^@]*@stud\.noroff\.no/g;
-    const pswRegex =  /[a-zA-Z0-9]{8,20}/g; 
+    const pswRegex = /[a-zA-Z0-9]{8,20}/g;
 
     submitButton.addEventListener("click", async () => {
-      console.log("Klikket VINKEL!");
       submitButton.disabled = true;
 
-      if (nameInput.value.length <= 1) { 
+      if (nameInput.value.length <= 1) {
         console.log("For kort navn, navn må være mer en 1 tegn.");
       }
 
       let emailMatch = emailRegex.exec(emailInput.value);
-      if(!emailMatch){
+      if (!emailMatch) {
         console.log("Emailen tilhører ikke en Noroff bruker");
       }
 
       let passwordMatch = pswRegex.exec(passwordInput.value);
-      if(!passwordMatch){
-        console.log("Passord må inneholde; liten bokstav, stor bokstav, minst 1 tall og være 8-20 tegn");
+      if (!passwordMatch) {
+        console.log(
+          "Passord må inneholde; liten bokstav, stor bokstav, minst 1 tall og være 8-20 tegn"
+        );
       }
 
-      if(await this.authService.register(nameInput.value, emailInput.value, passwordInput.value)){
+      if (
+        await this.authService.register(
+          nameInput.value,
+          emailInput.value,
+          passwordInput.value
+        )
+      ) {
         console.log("Registrering vellykket");
-      }else {
+      } else {
         console.error("Noe gikk gale.");
       }
-
-    })
+    });
   }
+}
 
-};
 export default Register;

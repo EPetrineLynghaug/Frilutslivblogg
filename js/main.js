@@ -7,7 +7,6 @@ import Card from './card.component.js';
 import Login from './login.component.js';
 import Register from './register.component.js';
 
-
 //let postContainer = document.querySelector(".post-container");
 
 customElements.define("app-navbar", Navbar);
@@ -15,6 +14,8 @@ customElements.define('app-carousel', Carousel);
 customElements.define('app-card', Card);
 customElements.define('app-login', Login);
 customElements.define('app-register', Register);
+
+// TODO: Refactor cards for homepage
 
 // let cards = [
 //     {
