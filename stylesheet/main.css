@@ -451,6 +451,7 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
     overflow: hidden;
+    margin-bottom: 10px;
 
   }
 
@@ -485,6 +486,22 @@ a {
     box-sizing: border-box;
   }
  
+  /*opprett bloggpost banner */
+  .notification {
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .notification-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
 
 
- 
+  .notification.success {
+    background-color: var(--color-success);
+  }
+
+  .notification.error {
+    background-color: var(--color-error);
+  }
