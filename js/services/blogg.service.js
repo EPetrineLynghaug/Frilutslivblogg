@@ -40,7 +40,7 @@ class BloggService {
        let response = await fetch(`${this.baseUrl}/id`, {
            method: "PUT",
            headers: {
-               "content-Type": "application/json",
+               "Content-Type": "application/json",
                "Authorization": `Bearer ${this.getAccessToken()}`
            },
            body: JSON.stringify(post),
@@ -55,11 +55,33 @@ class BloggService {
        };
     };
 
+    async getAllPosts() {
+        let response = await fetch(this.baseUrl);
+        console.log(response);
+
+        if (response.ok) {
+            response = await response.json();
+            return response.data;
+        } else {
+            console.log(response);
+            return false;
+        };
+    };
+
     async deletePost(id) {}
 
-    async getAllPosts() {}
+    async getSinglePost(id) {
+        let response = await fetch(`${this.baseUrl}/${id}`);
+        console.log(response);
 
-    async getSinglePost(id) {}
+        if (response.ok) {
+            response = await response.json();
+            return response.data;
+        } else {
+            console.log(response);
+            return false;
+        }
+    }
 
 }
 

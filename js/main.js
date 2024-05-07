@@ -8,6 +8,7 @@ import BloggCards from './components/blogg.component.js';
 import Login from './components/login.component.js';
 import Register from './components/register.component.js';
 import CreatePost from './components/createPost.component.js';
+import SinglePost from './components/singlepost.component.js';
 
 customElements.define("app-navbar", Navbar);
 customElements.define('app-carousel', Carousel);
@@ -16,3 +17,4 @@ customElements.define('app-blogg', BloggCards);
 customElements.define('app-login', Login);
 customElements.define('app-register', Register);
 customElements.define('app-make', CreatePost);
+customElements.define('app-singlepost', SinglePost);
