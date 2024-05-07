@@ -61,7 +61,7 @@ class Login extends HTMLElement {
       }
 
       if (await this.authService.login(emailInput.value, passwordInput.value)) {
-        window.location.href = '/index.html';
+        window.location.href = '/post/admin.html';
       } else {
         submitButton.disabled = false;
         console.log("Feil brukernavn eller passord");

@@ -44,18 +44,8 @@ class SinglePost extends HTMLElement {
 
     btnBack.addEventListener("click", (event) => {
       event.preventDefault();
-      // window.location.href = "/index.html";
-      console.log(this.id);
+      window.location.href = "/index.html";
     });
   }
 }
 export default SinglePost;
-
-          // <div>
-          //     <i class="nf nf-fa-calendar"></i>
-          //     ${ new Date(this.post.created).toDateString() }
-          // </div>
-          // <div>
-          //     <i class="nf nf-fa-user"></i>
-          //     ${this.post.author.name}
-          // </div>

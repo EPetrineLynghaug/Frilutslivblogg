@@ -9,6 +9,7 @@ import Login from './components/login.component.js';
 import Register from './components/register.component.js';
 import CreatePost from './components/createPost.component.js';
 import SinglePost from './components/singlepost.component.js';
+import Admin from './components/admin.component.js';
 
 customElements.define("app-navbar", Navbar);
 customElements.define('app-carousel', Carousel);
@@ -18,3 +19,4 @@ customElements.define('app-login', Login);
 customElements.define('app-register', Register);
 customElements.define('app-make', CreatePost);
 customElements.define('app-singlepost', SinglePost);
+customElements.define('app-admin', Admin);

@@ -55,6 +55,22 @@ class BloggService {
        };
     };
 
+    async deletePost(id) {
+        let response = await fetch(`${this.baseUrl}/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${this.getAccessToken()}`
+            }
+        });
+
+        if (response.ok) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     async getAllPosts() {
         let response = await fetch(this.baseUrl);
         console.log(response);
@@ -67,8 +83,6 @@ class BloggService {
             return false;
         };
     };
-
-    async deletePost(id) {}
 
     async getSinglePost(id) {
         let response = await fetch(`${this.baseUrl}/${id}`);

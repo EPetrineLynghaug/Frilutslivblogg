@@ -72,12 +72,3 @@ class CreatePost extends HTMLElement {
   }
 }
  export default CreatePost;
-// {
-//   "title": "string", // Required
-//   "body": "string", // Optional
-//   "tags": ["string"], // Optional
-//   "media": {
-//     "url": "https://url.com/image.jpg",
-//     "alt": "string"
-//   } // Optional
-// }
