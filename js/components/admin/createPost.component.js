@@ -1,4 +1,4 @@
-import BloggService from "../services/blogg.service.js";
+import BloggService from "../../services/blogg.service.js";
 
 class CreatePost extends HTMLElement {
   constructor() {

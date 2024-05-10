@@ -1,4 +1,5 @@
-import BloggService from "../services/blogg.service.js";
+import BloggService from "../../services/blogg.service.js";
+
 class Admin extends HTMLElement {
   constructor() {
     super();
@@ -15,7 +16,7 @@ class Admin extends HTMLElement {
 
   renderListItem(post) {
     return `
-      <li>
+      <li data-id="${post.id}">
         <img class="thumbnail" src="${post.media ? post.media.url : ''}">
         <span>${post.title}</span>
         <button data-id="${post.id}" class="btn edit-btn">Rediger</button>
@@ -27,7 +28,11 @@ class Admin extends HTMLElement {
   render() {
     this.classList.add("admin-container");
     this.innerHTML = `
-      <h1>Admin Panel</h1>
+         <div class="notification hidden">
+          <span class="notification-title"></span>
+          <span class="notification-body"></span>
+        </div>
+      <h1>Velkommen til admin Panelet</h1>
 
       <ul class="admin-list">
         ${ this.posts.map((post) => this.renderListItem(post)).join('') }
@@ -35,9 +40,13 @@ class Admin extends HTMLElement {
     `;
   }
 
- listner(){
-    const editButtonList = this.querySelectorAll(".edit-btn"); // [ <button></button> ]
+ listner() {
+    const editButtonList = this.querySelectorAll(".edit-btn"); 
     const deleteBtnList = this.querySelectorAll(".delete-btn");
+
+    const notify = this.querySelector('.notification');
+    const notifyTitle = this.querySelector('.notification-title');
+    const notifyBody = this.querySelector('.notification-body');
 
     editButtonList.forEach((button) => {
       button.addEventListener("click", (event) => {
@@ -54,23 +63,27 @@ class Admin extends HTMLElement {
         const deletedPost = await this.bloggService.deletePost(id);
 
         if (deletedPost) {
-          console.log('Posten ble slettet');
+          const listElement = this.querySelector(`[data-id="${id}"]`);
+          const postIndex = this.posts.findIndex((post) => post.id === id);
+          
+          if (postIndex !== -1) {
+            this.posts.splice(postIndex, 1);
+            listElement.remove();
+          }
+
           notify.classList.remove('hidden');
           notify.classList.add('success');
           notifyTitle.innerHTML = 'Post slettet!';
           notifyBody.innerHTML = 'Posten ble slettet';
         } else {
-            // !TODO
-          console.log('Posten ble ikke slettet!');
-        }
-
-        
-      })  
-     
-   
-
-    })
-   
+          notify.classList.remove('hidden');
+          notify.classList.add('error');
+          notifyTitle.innerHTML = 'Posten ble ikke slettet!';
+          notifyBody.innerHTML = 'Posten ble ikke slettet, prøv igjen senere';
+        } 
+      }); 
+    }); 
  }  
 }
+
 export default Admin;
