@@ -86,7 +86,6 @@ class BloggService {
 
     async getSinglePost(id) {
         let response = await fetch(`${this.baseUrl}/${id}`);
-        console.log(response);
 
         if (response.ok) {
             response = await response.json();

@@ -1,6 +1,13 @@
+/* Local files */
 @import url('./colors.css');
+@import url('./admin.css');
+@import url('./single-post.css');
+@import url('./make-post.css');
+@import url('./login.css');
+
+/* Font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
-/*Iconer*/
+/* Ikoner */
 @import url("https://www.nerdfonts.com/assets/css/webfont.css");
 
 
@@ -259,7 +266,6 @@ app-navbar nav {
 }
 
 
-
 .body-content h3 {
     font-size: 20px;
     font-weight: bold;
@@ -382,87 +388,11 @@ app-navbar nav {
     background-color: var(--color-error);
 }
 
-/*LOGIN*/
-.login, .register {
-    width: 300px;
-    background: var(--color-base-200);
-    box-shadow: var(--box-shadow-lg);
-    border-radius: 10px;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: hidden;
-  }
- 
-  
-  .login, .register:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-  .login-container, .register-container {
-    padding: 20px;
-  }
-  
-  input[type=email], input[type=password],input[type=name], input[type=submit] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-.input-wrapper {
-    padding: 6px 0;
-}
-  
-.actions {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 12px;
-}
 
 a {
 	color: var(--color-info);
 } 
 
-/*Ny bloggpost*/
-.make-container {
-    width: 350px;
-    height: 550px;
-    background: var(--color-base-200);
-    box-shadow: var(--box-shadow-lg);
-    border-radius: 10px;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: hidden;
-    margin-bottom: 10px;
-
-  }
-
-  .make-container:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-
-  .make-container form {
-    padding: 20px;
-    width: 100%;
-  }
   textarea {
     width: calc(100% - 40px);
     padding: 12px 20px;
@@ -485,106 +415,3 @@ a {
     border-radius: 4px;
     box-sizing: border-box;
   }
- 
-  /*opprett bloggpost banner */
-  .notification {
-    padding: 12px;
-    margin-bottom: 10px;
-  }
-  
-  .notification-title {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-
-
-  .notification.success {
-    background-color: var(--color-success);
-  }
-
-  .notification.error {
-    background-color: var(--color-error);
-  }
-  /*single post page*/
-  .single-post-page {
-    display: block;
-    width: 100%;
-    background-color: var(--color-background);
-    line-height: 1.3;
-  }
-  .single-post-content {
-    padding: 20px;
-  }
-  .single-post-page img {
-    width: 100%;
-    height: auto;
-  }
-  .btn-back {
-    background-color: var(--color-info);
-  }
-  .btn-back:hover {
-    background-color: var(--color-base-100);
-    border: 2px solid var(--color-info);
-  }
-.single-post-page .author {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: var(--color-neutral);
-}
-.single-post-page .author .light-text {
-  color: hsl(0, 0%, 42%);
-}
-
-/*ADMIN side*/
-.admin-list {
-  list-style-type: none;
-}
-
-.admin-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  background-color: #f9f9f9;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.admin-list li .thumbnail {
-  width: 36px;
-  height: 36px;
-  margin-right: 12px;
-  border-radius: 100%;
-  border: 2px solid var(--color-base-300);
-}
-
-.admin-list li span {
-  flex-grow: 1;
-  font-size: 18px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.admin-list li button {
-  margin-left: 10px;
-}
-
-.edit-btn, .delete-btn {
-  margin: 0 10px 10px 0;
-  padding: 5px 10px;
-  
-}
-.edit-btn{
-  background-color: var(--color-info);
-  border: 2px solid var(--color-info);
-
-}
-.delete-btn{
-  background-color: var(--color-error);
-  border: 2px solid var(--color-error);
-}
-.edit-btn:hover, .delete-btn:hover {
-  background-color: var(--color-base-100);
-}

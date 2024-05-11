@@ -1,0 +1,48 @@
+/*opprett bloggpost banner */
+.notification {
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.notification-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.notification.success {
+  background-color: var(--color-success);
+}
+
+.notification.error {
+  background-color: var(--color-error);
+}
+/*single post page*/
+.single-post-page {
+  display: block;
+  width: 100%;
+  background-color: var(--color-background);
+  line-height: 1.3;
+}
+.single-post-content {
+  padding: 20px;
+}
+.single-post-page img {
+  width: 100%;
+  height: auto;
+}
+.btn-back {
+  background-color: var(--color-info);
+}
+.btn-back:hover {
+  background-color: var(--color-base-100);
+  border: 2px solid var(--color-info);
+}
+.single-post-page .author {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-neutral);
+}
+.single-post-page .author .light-text {
+  color: hsl(0, 0%, 42%);
+}

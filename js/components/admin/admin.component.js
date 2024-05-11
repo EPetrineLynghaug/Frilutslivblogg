@@ -33,6 +33,7 @@ class Admin extends HTMLElement {
           <span class="notification-body"></span>
         </div>
       <h1>Velkommen til admin Panelet</h1>
+      <a href=/post/make.html class="btn make-btn">Opprett nytt innlegg</a>
 
       <ul class="admin-list">
         ${ this.posts.map((post) => this.renderListItem(post)).join('') }

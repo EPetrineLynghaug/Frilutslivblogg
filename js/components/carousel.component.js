@@ -1,45 +1,47 @@
+import BloggService from "../services/blogg.service.js";
+
 class Carousel extends HTMLElement {
   constructor() {
-      super();
+    super();
 
-      this.autoPlay = true;
-      this.activeSlideIndex = 0;
-      this.slides = [
-        {
-          id: '1',
-          img: 'https://raw.githubusercontent.com/klarKode/petrine-bilder/main/carousel_1.jpg',
-          title: 'Slide 1',
-          desc: 'this is slide 1',
-        },
-        {
-          id: '2',
-          img: 'https://raw.githubusercontent.com/klarKode/petrine-bilder/main/fixed_IMG_7572.JPG',
-          title: 'Slide 2',
-          desc: 'this is slide 2',
-        },
-        {
-          id: '3',
-          img: 'https://plus.unsplash.com/premium_photo-1663933534267-fe6969cd26e1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-          title: 'Slide 3',
-          desc: 'this is slide 3',
-        },
-      ];
+    this.bloggService = new BloggService();
+
+    this.autoPlay = true;
+    this.activeSlideIndex = 0;
+    this.slides = [];
+
+    this.idList = [
+      "09caf03b-a21e-4be8-8043-6dfbe56b291d",
+      "b415a8ef-549a-4f79-af7d-3c213ccbf59e",
+      "66de9bf8-ea06-4ad4-885e-dc9124e63834",
+    ];
   }
 
-  connectedCallback() {
+  async getPosts() {
+    let post1 = await this.bloggService.getSinglePost(this.idList[0]);
+    let post2 = await this.bloggService.getSinglePost(this.idList[1]);
+    let post3 = await this.bloggService.getSinglePost(this.idList[2]);
+
+    return [post1, post2, post3];
+  }
+
+  async connectedCallback() {
+    this.slides = await this.getPosts();
+
     this.render();
     this.listener();
-    
   }
 
   newSlide(slide) {
     return `
       <div class="slide">
-        <img src="${slide.img}" alt="${slide.title}" />
+        <img src="${slide.media ? slide.media.url : ""}" alt="${slide.title}" />
         <div class="caption">
           <h2>${slide.title}</h2>
-          <p>${slide.desc}</p>
-          <a href="post.html?id=${slide.id}" class="btn app-btn-info">Les mer</a>
+          <p>${slide.body}</p>
+          <a href="post.html?id=${
+            slide.id
+          }" class="btn app-btn-info">Les mer</a>
         </div>
       </div>
     `;
@@ -54,9 +56,9 @@ class Carousel extends HTMLElement {
   }
 
   render() {
-    this.classList.add('carousel');
+    this.classList.add("carousel");
     this.innerHTML = `
-      ${ this.slides.map( (slide) => this.newSlide(slide) ).join('') }
+      ${this.slides.map((slide) => this.newSlide(slide)).join("")}
 
       <button class="prev slide-btn-prev">
         <i class="nf nf-fa-chevron_left"></i>
@@ -66,24 +68,28 @@ class Carousel extends HTMLElement {
       </button>
 
       <div class="indicators">
-        ${ this.slides.map( (slide) => this.newIndicator(slide.img, slide.title) ).join('') }
+        ${this.slides
+          .map((slide) =>
+            this.newIndicator(slide.media ? slide.media.url : "", slide.title)
+          )
+          .join("")}
       </div>
     `;
   } // render()
 
-  nextSlide(allSlides, allIndicators){
-
+  nextSlide(allSlides, allIndicators) {
     if (this.activeSlideIndex < allSlides.length - 1) {
       this.activeSlideIndex++;
-    }else{
+    } else {
       this.activeSlideIndex = 0;
     }
 
-      this.updateSlides(allSlides, allIndicators);
+    this.updateSlides(allSlides, allIndicators);
   }
 
-  prevSlide(allSlides, allIndicators){
-    if (this.activeSlideIndex > 0) { // 0, 1, 2
+  prevSlide(allSlides, allIndicators) {
+    if (this.activeSlideIndex > 0) {
+      // 0, 1, 2
       this.activeSlideIndex--;
     } else {
       this.activeSlideIndex = allSlides.length - 1; // 1, 2, 3
@@ -92,51 +98,47 @@ class Carousel extends HTMLElement {
     this.updateSlides(allSlides, allIndicators);
   }
 
-
   autoSlider(allSlides, allIndicators) {
     setInterval(() => {
-      if(this.autoPlay){
-        this.nextSlide(allSlides,allIndicators)
+      if (this.autoPlay) {
+        this.nextSlide(allSlides, allIndicators);
       }
     }, 5000);
   }
 
- 
-
-
   updateSlides(allSlides, allIndicators) {
-  allSlides.forEach((slide, index) => {
-    if (index === this.activeSlideIndex) {
-      slide.classList.add('active');
-    } else {
-      slide.classList.remove('active');
-    }
-  });
+    allSlides.forEach((slide, index) => {
+      if (index === this.activeSlideIndex) {
+        slide.classList.add("active");
+      } else {
+        slide.classList.remove("active");
+      }
+    });
 
-  allIndicators.forEach((indicator, index) => {
-    if (index === this.activeSlideIndex) {
-      indicator.classList.add('active');
-    } else {
-      indicator.classList.remove('active');
-    }
-  });
-}
+    allIndicators.forEach((indicator, index) => {
+      if (index === this.activeSlideIndex) {
+        indicator.classList.add("active");
+      } else {
+        indicator.classList.remove("active");
+      }
+    });
+  }
 
   listener() {
-    const allSlides = this.querySelectorAll('.slide');
-    const allIndicators = this.querySelectorAll('.indicator');
-    const prevButton = this.querySelector('.slide-btn-prev');
-    const nextButton = this.querySelector('.slide-btn-next');
-    
-    allSlides[0].classList.add('active');
-    allIndicators[0].classList.add('active');
+    const allSlides = this.querySelectorAll(".slide");
+    const allIndicators = this.querySelectorAll(".indicator");
+    const prevButton = this.querySelector(".slide-btn-prev");
+    const nextButton = this.querySelector(".slide-btn-next");
 
-    prevButton.addEventListener('click', (event) => {
+    allSlides[0].classList.add("active");
+    allIndicators[0].classList.add("active");
+
+    prevButton.addEventListener("click", (event) => {
       event.preventDefault();
       this.prevSlide(allSlides, allIndicators);
     });
 
-    nextButton.addEventListener('click', (event) => {
+    nextButton.addEventListener("click", (event) => {
       event.preventDefault();
       this.nextSlide(allSlides, allIndicators);
     });
@@ -144,19 +146,15 @@ class Carousel extends HTMLElement {
     this.autoSlider(allSlides, allIndicators);
 
     this.addEventListener(`mouseover`, (event) => {
-     event.preventDefault();
-     this.autoPlay =false;
+      event.preventDefault();
+      this.autoPlay = false;
     });
 
     this.addEventListener(`mouseout`, (event) => {
       event.preventDefault();
       this.autoPlay = true;
-     });
-
-  
+    });
   }
-
-} //klasse karusell //
+} // klasse karusell //
 
 export default Carousel;
-

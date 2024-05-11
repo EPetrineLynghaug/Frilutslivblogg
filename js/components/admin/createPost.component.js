@@ -28,13 +28,14 @@ class CreatePost extends HTMLElement {
 
         <button type="button" class="hidden btn slett-btn">Slett</button>
         <button type="button" class="btn post-btn">Post</button>
+        <a href="/post/admin.html" class="btn btn-back">Tilbake</a>
       </form>
     `;
   }
 
   listener() {
     const submitButton = this.querySelector(".post-btn");
-    // const deleteButton = this.querySelector(".slett-btn");
+  
 
     const notify = this.querySelector('.notification');
     const notifyTitle = this.querySelector('.notification-title');
