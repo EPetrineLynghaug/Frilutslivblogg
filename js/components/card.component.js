@@ -36,7 +36,10 @@ class Card extends HTMLElement{
                 </div>
             </div>
             <h3>${this.title}</h3>
-            <p>${this.body}</p> 
+            <div class="excerpt">
+                <p>${this.body}</p> 
+                <div class="excerpt-gradient"></div>
+            </div>
         </div>
         <div class="actions">
             <button class="btn card-read-more">
