@@ -73,7 +73,12 @@ class BloggService {
     }
 
     async getAllPosts(limit = null) {
-        let response = await fetch(`${this.baseUrl}?limit=${limit}`);
+        let url = this.baseUrl; // https://v2.api.noroff.dev/blog/posts/petrine
+        if (limit) {
+            url += `?limit=${limit}`; // url + ?limit=X
+        }
+
+        let response = await fetch(url);
         console.log(response);
 
         if (response.ok) {

@@ -11,7 +11,7 @@ class Footer extends HTMLElement {
     this.innerHTML = `
         <div class="footer-top">
           <div class="footer-logo">
-            <img src="../media/Eventyrer.PNG" alt="Brandinglogo">
+            <img src="/media/Eventyrer.PNG" alt="Brandinglogo">
             <div class="footer-logo-shadow"></div>
           </div>
             <b>Petrine Lynghaug</b>
@@ -19,13 +19,13 @@ class Footer extends HTMLElement {
         </div>
         <ul class="footer-bottom">
             <li>
-                <a>Hjem</a>
+                <a href="/index.html">Hjem</a>
             </li>
             <li>
-                <a>Om meg</a>
+                <a href="/about.html">Om meg</a>
             </li>
             <li>
-                <a>Login</a>
+                <a href="/account/login.html">Login</a>
             </li>
         </ul>
     `;

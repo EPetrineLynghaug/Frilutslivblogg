@@ -7,7 +7,17 @@ class CreatePost extends HTMLElement {
     this.bloggService = new BloggService();
   }
 
+  authCheck() {
+    let token = this.bloggService.getAccessToken();
+
+    if (!token) {
+      window.location.href = '/account/login.html';
+    }
+  }
+
   connectedCallback() {
+    this.authCheck();
+
     this.render();
     this.listener();
   }
