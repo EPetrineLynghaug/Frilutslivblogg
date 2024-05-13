@@ -18,11 +18,9 @@ class Carousel extends HTMLElement {
   }
 
   async getPosts() {
-    let post1 = await this.bloggService.getSinglePost(this.idList[0]);
-    let post2 = await this.bloggService.getSinglePost(this.idList[1]);
-    let post3 = await this.bloggService.getSinglePost(this.idList[2]);
+    // ?limit=3
 
-    return [post1, post2, post3];
+    return await this.bloggService.getAllPosts(3);
   }
 
   async connectedCallback() {

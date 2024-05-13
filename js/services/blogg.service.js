@@ -72,8 +72,8 @@ class BloggService {
         }
     }
 
-    async getAllPosts() {
-        let response = await fetch(this.baseUrl);
+    async getAllPosts(limit = null) {
+        let response = await fetch(`${this.baseUrl}?limit=${limit}`);
         console.log(response);
 
         if (response.ok) {
