@@ -11,8 +11,8 @@ class Carousel extends HTMLElement {
     this.slides = [];
 
     this.idList = [
-      "09caf03b-a21e-4be8-8043-6dfbe56b291d",
-      "b415a8ef-549a-4f79-af7d-3c213ccbf59e",
+      "edb2beef-2061-45bc-bbf0-ba75932fe760",
+      "4f3ab5db-2c22-421f-89ff-03cb220893db",
       "66de9bf8-ea06-4ad4-885e-dc9124e63834",
     ];
   }

@@ -36,12 +36,13 @@ class BloggService {
         }
     };
 
-    async editPost(post) {
-       let response = await fetch(`${this.baseUrl}/id`, {
+    async editPost(post, id) {
+        const token = this.getAccessToken();
+       let response = await fetch(`${this.baseUrl}/${id}`, {
            method: "PUT",
            headers: {
                "Content-Type": "application/json",
-               "Authorization": `Bearer ${this.getAccessToken()}`
+               "Authorization": `Bearer ${token}`,
            },
            body: JSON.stringify(post),
        });

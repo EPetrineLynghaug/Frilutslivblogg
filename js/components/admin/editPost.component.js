@@ -18,8 +18,6 @@ class EditPost extends HTMLElement {
   async connectedCallback() {
     this.post = await this.getSinglePost();
 
-    console.log(this.post);
-
     this.render();
     this.listener();
   }
@@ -73,7 +71,7 @@ class EditPost extends HTMLElement {
         },
       };
 
-      const response = await this.bloggService.createPost(post);
+      const response = await this.bloggService.editPost(post, this.post.id);
 
       if (response) {
         notify.classList.remove("hidden");
