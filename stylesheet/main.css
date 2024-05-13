@@ -4,6 +4,7 @@
 @import url('./single-post.css');
 @import url('./make-post.css');
 @import url('./login.css');
+@import url('./footer.css');
 
 /* Font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
@@ -367,10 +368,14 @@ app-navbar nav {
 }
 
 /*Knapper*/
+/* <button class="btn">
+<a class="btn"> */
+a.btn {
+    text-decoration: none;
+}
 .btn {
     font-size: 14px;
     text-transform: uppercase;
-    text-decoration: none;
     cursor: pointer;
     padding: 6px 10px 4px 10px;
     border-radius: 4px;
@@ -379,6 +384,7 @@ app-navbar nav {
     transition-duration: 0.1s;
     box-shadow: var(--box-shadow-sm);
     border: 2px solid transparent;
+    color: var(--color-neutral);
 }
 
 .app-btn-info {
@@ -396,6 +402,14 @@ app-navbar nav {
     width: 100%;
     background-color: var(--color-info);
 }
+
+/* .primary-btn {}
+.secondary-btn {}
+.neutral-btn {}
+.success-btn {}
+.warning-btn {}
+.error-btn {} */
+
 .login-btn {
   width: 35%;
   background-color: var(--color-success); 
@@ -405,7 +419,7 @@ app-navbar nav {
     width: 100%;
     background-color: var(--color-success);   
 }
-.login-btn .registrer-btn:hover {
+.login-btn, .registrer-btn:hover {
     background-color: var(--color-base-100);
     color: var(--color-success); 
 }
@@ -421,6 +435,7 @@ app-navbar nav {
 
 a {
 	color: var(--color-info);
+    cursor: pointer;
 } 
 
   textarea {

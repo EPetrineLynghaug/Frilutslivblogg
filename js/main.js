@@ -12,6 +12,7 @@ import Carousel from './components/carousel.component.js';
 import Card from './components/card.component.js';
 import BloggCards from './components/blogg.component.js';
 import SinglePost from './components/singlepost.component.js';
+import Footer from './components/footer.component.js';
 
 customElements.define("app-navbar", Navbar);
 customElements.define('app-carousel', Carousel);
@@ -23,3 +24,4 @@ customElements.define('app-make', CreatePost);
 customElements.define('app-singlepost', SinglePost);
 customElements.define('app-admin', Admin);
 customElements.define('app-edit', EditPost);
+customElements.define('app-footer', Footer);
