@@ -131,7 +131,6 @@ app-navbar nav {
   width: 100%;
   aspect-ratio: 16 / 9;
   min-height: 250px;
-  background-color: var(--color-primary);
   margin-bottom: 48px;
 }
 .carousel .slide {
