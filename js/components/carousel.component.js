@@ -3,23 +3,14 @@ import BloggService from "../services/blogg.service.js";
 class Carousel extends HTMLElement {
   constructor() {
     super();
-
     this.bloggService = new BloggService();
 
     this.autoPlay = true;
     this.activeSlideIndex = 0;
     this.slides = [];
-
-    this.idList = [
-      "edb2beef-2061-45bc-bbf0-ba75932fe760",
-      "4f3ab5db-2c22-421f-89ff-03cb220893db",
-      "66de9bf8-ea06-4ad4-885e-dc9124e63834",
-    ];
   }
 
   async getPosts() {
-    // ?limit=3
-
     return await this.bloggService.getAllPosts(3);
   }
 
