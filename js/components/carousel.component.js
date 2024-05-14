@@ -28,7 +28,7 @@ class Carousel extends HTMLElement {
         <div class="caption">
           <h2>${slide.title}</h2>
           <p>${slide.body}</p>
-          <a href="post.html?id=${
+          <a href="/post/index.html?id=${
             slide.id
           }" class="btn app-btn-info">Les mer</a>
         </div>

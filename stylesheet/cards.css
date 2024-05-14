@@ -14,7 +14,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: var(--box-shadow-lg);
+  box-shadow: var(--box-shadow-sm);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -122,17 +122,5 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-  }
-  .card-container {
-    width: 100%;
-    max-width: 350px;
-    background: var(--color-base-200);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: var(--box-shadow-lg);
-    border-radius: 10px;
-    overflow: hidden;
   }
 }

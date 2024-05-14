@@ -44,6 +44,10 @@ i.nf {
   font-size: 12px;
 }
 
+.hidden {
+  display: none;
+}
+
 .divider {
   background-color: var(--color-secondary);
   height: 2px;
@@ -66,12 +70,38 @@ app-navbar nav {
   position: relative;
   padding: var(--padding-sm);
 }
+.desktop-menu {
+  display: none;
+}
+.desktop-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+.desktop-menu li a {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  color: var(--color-neutral);
+  border-bottom: 2px solid transparent;
+}
+.desktop-menu li a:hover {
+  border-bottom-color: var(--color-secondary);
+}
+.desktop-menu li.active a {
+  border-bottom-color: var(--color-secondary);
+}
 .branding {
   width: 150px;
   height: 50px;
-  background-image: url("../media/Eventyrer.png");
-  background-size: cover;
+  background-image: url("../media/Eventyrer.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: 50% 45%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 }
 #menuToggle {
   font-size: large;
@@ -234,15 +264,26 @@ app-navbar nav {
 }
 
 @media screen and (min-width: 800px) {
+  app-navbar {
+    margin: 36px 0;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  .desktop-menu {
+    display: initial;
+  }
   .home-page-content {
     padding: 0 48px;
   }
   .carousel {
     aspect-ratio: 16 / 8;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
   }
   .slide img,
   .slide .caption {
-    border-radius: 0 0 10px 10px;
+    border-radius: 10px;
   }
   .caption p {
   font-size: 16px;

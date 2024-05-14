@@ -18,26 +18,36 @@ class Navbar extends HTMLElement {
     ];
   } //constructor//
 
+  currentPage(pagePath) {
+    const pathname = window.location.pathname;
+    return pagePath === pathname
+      ? true
+      : false;
+  }
 
   connectedCallback() {
     this.render()
     this.listener();
   }
 
-  disconnectedCallback() {
-    console.log("Custom element removed from page.");
-  }
-
   menuItem(item) {
-    return `<a href="${item.href}">${item.text}</a>`;
+    return `
+      <li class="${this.currentPage(item.href) ? 'active' : 'inactive'}">
+        <a href="${item.href}">${item.text}</a>
+      </li>
+    `;
   }
 
   render() {
     this.innerHTML = `
-      <div class="branding">
-      </div>
+      <div class="branding"></div>
 
-      <nav>
+      <nav class="desktop-menu">
+        <ul>
+          ${this.menu.map(item => this.menuItem(item)).join('')}
+        </ul>
+      </nav>
+      <nav class="mobile-menu">
         <button id="menuToggle">
           <i class="nf nf-md-menu"></i> Meny
         </button>
