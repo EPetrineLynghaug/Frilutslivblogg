@@ -297,22 +297,7 @@ app-navbar nav {
   justify-content: flex-end;
 }
 }
-@media screen and (min-width: 1200px) {
-  .home-page-content {
-    padding: 0 96px;
-  }
-  .carousel {
-    aspect-ratio: 16 / 7;
-  }
-}
-@media screen and (min-width: 1650px) {
-  .home-page-content {
-    padding: 0 128px;
-  }
-  .carousel {
-    aspect-ratio: 16 / 6;
-  }
-}
+
 
 /*H3 overskift */
 .eventyrer {
@@ -420,4 +405,23 @@ input[type="file"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+
+
+@media screen and (min-width: 1200px) {
+  .home-page-content {
+    padding: 0 96px;
+  }
+  .carousel {
+    aspect-ratio: 16 / 7;
+  }
+}
+@media screen and (min-width: 1650px) {
+  .home-page-content {
+    padding: 0 128px;
+  }
+  .carousel {
+    aspect-ratio: 16 / 6;
+  }
 }
