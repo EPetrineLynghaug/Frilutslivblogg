@@ -131,7 +131,6 @@ app-sidebar h2 {
     aspect-ratio: 16 / 7;
     object-fit: cover;
   }
-  }
 
   .sidebar-box-card {
     flex-direction: row;
@@ -148,12 +147,8 @@ app-sidebar h2 {
   .sidebar-box-content {
     width: 50%;
   }
-  /* .btn-back{
-    display: flex;
-    justify-content: flex-end;
-  } */
  
-
+}
 
 @media screen and (min-width: 1200px) {
   .single-post-page img {
