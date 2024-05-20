@@ -40,7 +40,9 @@ class Navbar extends HTMLElement {
 
   render() {
     this.innerHTML = `
-      <div class="branding"></div>
+      <div class="branding">
+        <img src="../media/Eventyrer.png">
+      </div>
 
       <nav class="desktop-menu">
         <ul>
