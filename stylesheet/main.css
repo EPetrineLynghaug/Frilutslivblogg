@@ -115,6 +115,7 @@ app-navbar nav {
   background-color: transparent;
   border: none;
   margin-right: 10px;
+  color: var(--color-neutral);
 }
 
 .dropdown {
