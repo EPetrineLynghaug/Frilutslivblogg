@@ -4,7 +4,7 @@
   margin-bottom: 10px;
 }
 
-.notification-title {
+.notification > .notification-title {
   font-weight: bold;
   margin-bottom: 5px;
 }
@@ -17,6 +17,13 @@
   background-color: var(--color-error);
 }
 /*single post page*/
+.single-post-page-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .single-post-page {
   display: block;
   width: 100%;
@@ -40,6 +47,13 @@
   height: auto;
 }
 
+.single-post-actions {
+  width: 100%;
+  max-width: 700px;
+  padding: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
 .btn-back {
   background-color: var(--color-info);
 }
@@ -58,7 +72,7 @@
 }
 p {
   word-wrap: break-word;
-  max-width: 80ch;
+  max-width: 700px;
 }
 
 /*sidebar*/
@@ -111,7 +125,6 @@ app-sidebar h2 {
   display: block;
   font-size: 1.2rem;
   font-weight: bold;
-  margin: 5px 0;
 }
 .sidebar-box-author {
   display: block;
@@ -121,15 +134,20 @@ app-sidebar h2 {
 
 /*media queries*/
 @media screen and (min-width: 800px) {
+
+  .single-post-page-wrapper {
+    padding: 0 48px;
+  }
   .single-post-content {
     padding: 10px;
   }
 
   .single-post-page img {
     width: 100%;
-    margin-bottom: 10px;
     aspect-ratio: 16 / 7;
     object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
   }
 
   .sidebar-box-card {
@@ -151,12 +169,16 @@ app-sidebar h2 {
 }
 
 @media screen and (min-width: 1200px) {
+  .single-post-page-wrapper {
+    padding: 0 96px;
+  }
   .single-post-page img {
     width: 100%;
     aspect-ratio: 16 / 6;
     object-fit: cover;
   }
   .single-post-wrapper {
+    padding: 10px;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -166,7 +188,11 @@ app-sidebar h2 {
     padding: 20px;
   }
   app-sidebar {
+    height: 100%;
+    padding: 12px 24px 36px 24px;
     flex: 1;
+    background-color: var(--color-base-200);
+    border-radius: 4px;
   }
   .sidebar-box-card {
     flex-direction: column;
@@ -180,5 +206,11 @@ app-sidebar h2 {
   }
   .sidebar-box-content {
     width: 100%;
+  }
+}
+
+@media screen and (min-width: 1650px) {
+  .single-post-page-wrapper {
+    padding: 0 128px;
   }
 }

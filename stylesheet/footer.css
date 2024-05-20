@@ -2,7 +2,7 @@
 app-footer{
     background-color: var(--color-primary);
     display: block;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     padding: 20px;
 }
 .footer-top{

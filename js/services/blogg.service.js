@@ -1,7 +1,10 @@
+import AuthService from "./auth.service.js";
+
 class BloggService {
 
     constructor() {
         this.baseUrl = "https://v2.api.noroff.dev/blog/posts/petrine";
+        this.AuthService = new AuthService();
     }
 
     getAccessToken() {
@@ -14,7 +17,7 @@ class BloggService {
     }
 
     async createPost(post) {
-        const token = this.getAccessToken();
+        const token = this.AuthService.getAccessToken();
         console.log(`Token: ${token}`);
 
         let response = await fetch(this.baseUrl, {

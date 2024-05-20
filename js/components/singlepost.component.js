@@ -38,7 +38,9 @@ class SinglePost extends HTMLElement {
           <p>
             ${this.post.body ? this.post.body : 'Denne posten har ingen tekst'}
           </p>
-          <button class="btn btn-back">Tilbake</button>
+          <div class="single-post-actions">
+            <button class="btn btn-back">Tilbake</button>
+          </div>
         </div>
         <app-sidebar id="${this.post.id}"></app-sidebar>
       </div>

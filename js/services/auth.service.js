@@ -3,6 +3,23 @@ class AuthService {
     this.baseUrl = "https://v2.api.noroff.dev/auth";
   }
 
+  getAccessToken() {
+    let token = localStorage.getItem('token');
+
+    if (token) {
+        token = JSON.parse(token);
+        return token;
+    }
+  }
+
+  isLoggedIn() {
+    if (this.getAccessToken()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   async login(email, password) {
     const reqBody = {
       email: email,

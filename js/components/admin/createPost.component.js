@@ -1,25 +1,23 @@
+import AuthService from "../../services/auth.service.js";
 import BloggService from "../../services/blogg.service.js";
 
 class CreatePost extends HTMLElement {
   constructor() {
     super();
 
+    this.authService = new AuthService();
     this.bloggService = new BloggService();
   }
 
-  authCheck() {
-    let token = this.bloggService.getAccessToken();
-
-    if (!token) {
+  connectedCallback() {
+    if (!this.authService.isLoggedIn()) {
       window.location.href = '/account/login.html';
     }
-  }
 
-  connectedCallback() {
-    this.authCheck();
-
-    this.render();
-    this.listener();
+    // this.render();
+    // this.listener();
+    this.render()
+        .listener();
   }
 
   render() {
@@ -41,11 +39,12 @@ class CreatePost extends HTMLElement {
         <a href="/post/admin.html" class="btn btn-back">Tilbake</a>
       </form>
     `;
+
+    return this;
   }
 
   listener() {
     const submitButton = this.querySelector(".post-btn");
-  
 
     const notify = this.querySelector('.notification');
     const notifyTitle = this.querySelector('.notification-title');
@@ -80,6 +79,8 @@ class CreatePost extends HTMLElement {
         notifyBody.innerHTML = 'Posten ble ikke opprettet, sjekk at du er logget inn!';
       }
     });
+  
+    return this;
   }
 }
  export default CreatePost;
