@@ -42,8 +42,10 @@ class EditPost extends HTMLElement {
           this.post.body
         }</textarea><br>
 
-        <button type="button" class="hidden btn slett-btn">Slett</button>
-        <button type="button" class="btn post-btn">Oppdater</button>
+        <div class="actions">
+          <button type="button" class="hidden btn slett-btn">Slett</button>
+          <button type="button" class="btn post-btn">Oppdater</button>
+        </div>
       </form>
     `;
   }

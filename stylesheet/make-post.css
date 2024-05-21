@@ -1,31 +1,34 @@
-
-  .make-container {
-    width: 350px;
-    height: auto;
-    background: linear-gradient(135deg, var(--color-base-200), var(--color-base-300));
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    transition: box-shadow 0.3s, transform 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: hidden;
+   
+  .make-container h1 {
+    font-size: 24px;
+    text-align: center;
     margin-bottom: 20px;
   }
- 
- 
-  .make-container form {
-    padding: 20px;
+  .make-container {
     width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .make-container form {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+  }
+
+  .make-container form input,
+  .make-container form textarea {
+    width: 100%;
+  }
+  .make-container form .actions {
+    width: 100%;
+    padding: 12px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   
   #text {
-    width: calc(100% - 40px);
     height: 200px;
     resize: none; 
     padding: 10px;
@@ -34,17 +37,12 @@
     border: 1px solid #ccc;
   }
   
-  
-  /* Tilpass knapper */
-  .post-btn,
   .slett-btn {
     padding: 10px 20px;
-    margin-right: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
-   
   }
   
   

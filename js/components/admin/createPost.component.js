@@ -10,9 +10,9 @@ class CreatePost extends HTMLElement {
   }
 
   connectedCallback() {
-    if (!this.authService.isLoggedIn()) {
-      window.location.href = '/account/login.html';
-    }
+    // if (!this.authService.isLoggedIn()) {
+    //   window.location.href = '/account/login.html';
+    // }
 
     // this.render();
     // this.listener();
@@ -34,9 +34,10 @@ class CreatePost extends HTMLElement {
         <input type="text" id="title" name="title" placeholder="Tittel"><br>
         <textarea id="text" name="text" placeholder="Tekst på maks 500 tegn" maxlength="500"></textarea><br>
 
-        <button type="button" class="hidden btn slett-btn">Slett</button>
-        <button type="button" class="btn post-btn">Post</button>
-        <a href="/post/admin.html" class="btn btn-back">Tilbake</a>
+        <div class="actions">
+          <a href="/post/admin.html" class="btn btn-back">Tilbake</a>
+          <button type="button" class="btn post-btn">Publiser</button>
+        </div>
       </form>
     `;
 

@@ -21,6 +21,7 @@
   --color-error: #ffc5c5;
   --color-error-content: #0b0b0b;
   --color-background: #fafafa;
+  --color-background-graphics: hsla(258, 54%, 82%, .2);
 
   --margin-none: 0;
   --margin-sm: 8px;

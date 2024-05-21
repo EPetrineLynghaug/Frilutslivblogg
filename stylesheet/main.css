@@ -62,7 +62,7 @@ app-navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--color-background);
+  /* background-color: var(--color-background); */
   font-size: large;
 }
 app-navbar nav {
@@ -160,6 +160,26 @@ app-navbar nav {
 
 .home-page-content {
   padding: 0;
+}
+
+/* ADMIN PAGE STYLING */
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(
+    -50deg,
+    transparent 0%,
+    transparent 10%,
+    var(--color-background-graphics) 10%,
+    var(--color-background-graphics) 20%,
+    transparent 20%,
+    transparent 50%,
+    var(--color-background-graphics) 50%,
+    var(--color-background-graphics) 70%,
+    transparent 70%,
+    transparent 100%
+  );
 }
 
 /*Karusellen*/
@@ -273,8 +293,10 @@ app-navbar nav {
 
 @media screen and (min-width: 800px) {
   app-navbar {
-    margin: 36px 0;
-    padding: 0;
+    padding: 36px 0;
+  }
+  .admin-page app-navbar {
+    padding: 36px;
   }
   .branding {
     width: 96px;
@@ -378,14 +400,30 @@ a.btn {
 .registrer-btn:hover {
   background-color: var(--color-base-100);
   color: var(--color-success);
+  border: 1px solid var(--color-success);
+  
 }
-.post-btn,
-.slett-btn {
-  width: 30%;
+.post-btn {
   background-color: var(--color-success);
+}
+.post-btn:hover {
+  background-color: var(--color-base-100);
+  color: var(--color-info-content);
+  border: 1px solid var(--color-success);
+
 }
 .slett-btn {
   background-color: var(--color-error);
+}
+.slett-btn:hover {
+  background-color: var(--color-base-100);
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+}
+.btn{
+  padding: 0.65em 1.2em;
+  font-size: .9em;
+  font-weight: 400;
 }
 
 a {
