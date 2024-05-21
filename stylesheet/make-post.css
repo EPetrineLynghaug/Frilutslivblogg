@@ -1,31 +1,3 @@
-/*Ny bloggpost*/
-/* .make-container {
-    width: 350px;
-    height: 550px;
-    background: var(--color-base-200);
-    box-shadow: var(--box-shadow-lg);
-    border-radius: 10px;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: hidden;
-    margin-bottom: 10px;
-  }
-
-  .make-container:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-
-  .make-container form {
-    padding: 20px;
-    width: 100%;
-  } */
 
   .make-container {
     width: 350px;
