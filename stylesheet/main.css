@@ -389,7 +389,6 @@ a.btn {
 .error-btn {} */
 
 .login-btn {
-  width: 35%;
   background-color: var(--color-success);
 }
 .registrer-btn {

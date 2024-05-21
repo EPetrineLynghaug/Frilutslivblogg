@@ -49,8 +49,17 @@
   background-color: var(--color-error);
   border: 2px solid var(--color-error);
 }
-.edit-btn:hover, .delete-btn:hover {
+.edit-btn:hover {
   background-color: var(--color-base-100);
+  color: var( --color-neutral);
+  border: 2px solid var(--color-info);
+}
+
+.delete-btn:hover {
+  background-color: var(--color-base-100);
+  color: var( --color-neutral);
+  border: 2px solid var(--color-error);
+
 }
 
 .make-btn {
