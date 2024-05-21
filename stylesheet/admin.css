@@ -39,7 +39,8 @@
   padding: 5px 10px;
   
 }
-.edit-btn{
+.edit-btn,
+.make-btn{
   background-color: var(--color-info);
   border: 2px solid var(--color-info);
 
@@ -50,4 +51,17 @@
 }
 .edit-btn:hover, .delete-btn:hover {
   background-color: var(--color-base-100);
+}
+
+.make-btn {
+  display: inline-block;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 200px;
 }
