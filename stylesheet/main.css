@@ -163,7 +163,7 @@ app-navbar nav {
 }
 
 /* ADMIN PAGE STYLING */
-.admin-page {
+.admin-page  {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -380,13 +380,6 @@ a.btn {
   width: 100%;
   background-color: var(--color-info);
 }
-
-/* .primary-btn {}
-.secondary-btn {}
-.neutral-btn {}
-.success-btn {}
-.warning-btn {}
-.error-btn {} */
 
 .login-btn {
   background-color: var(--color-success);
