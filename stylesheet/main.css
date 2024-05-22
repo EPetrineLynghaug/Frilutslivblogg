@@ -33,9 +33,6 @@ h3 {
   font-weight: 900;
 }
 
-/* .nf-md-menu,
-.nf-md-close,
-.nf-fa-chevron_right { */
 i.nf {
   font-size: 18px;
   color: var(--color-neutral);
@@ -62,7 +59,6 @@ app-navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* background-color: var(--color-background); */
   font-size: large;
 }
 app-navbar nav {
@@ -181,6 +177,16 @@ app-navbar nav {
     transparent 100%
   );
 }
+.admin-title{
+  text-align: center;
+  font-size: 24px;
+}
+.btn-new-post{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /*Karusellen*/
 .carousel {
@@ -452,6 +458,9 @@ input[type="file"] {
   }
   .carousel {
     aspect-ratio: 16 / 7;
+  }
+  .admin-title{
+    font-size: 48px;
   }
 }
 @media screen and (min-width: 1650px) {
