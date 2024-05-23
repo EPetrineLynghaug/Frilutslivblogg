@@ -1,5 +1,6 @@
 import AuthService from "../../services/auth.service.js";
 import BloggService from "../../services/blogg.service.js";
+import ModalComponent from "./modal.component.js";
 
 class Admin extends HTMLElement {
   constructor() {
@@ -10,9 +11,9 @@ class Admin extends HTMLElement {
   }
 
   async connectedCallback() {
-    if (!this.authService.isLoggedIn()) {
-      window.location.href = '/account/login.html';
-    }
+    // if (!this.authService.isLoggedIn()) {
+    //   window.location.href = '/account/login.html';
+    // }
 
     this.posts = await this.bloggService.getAllPosts();
 
@@ -70,27 +71,32 @@ class Admin extends HTMLElement {
       button.addEventListener("click", async (event) => {
         event.preventDefault();
         const id = button.getAttribute('data-id');
-        const deletedPost = await this.bloggService.deletePost(id);
+        const post = this.posts.find((post) => post.id === id);
 
-        if (deletedPost) {
-          const listElement = this.querySelector(`[data-id="${id}"]`);
-          const postIndex = this.posts.findIndex((post) => post.id === id);
+        const deleteModal = new ModalComponent(post, () => {console.log("Post slettet")});
+        this.append(deleteModal);
+
+        // const deletedPost = await this.bloggService.deletePost(id);
+
+        // if (deletedPost) {
+        //   const listElement = this.querySelector(`[data-id="${id}"]`);
+        //   const postIndex = this.posts.findIndex((post) => post.id === id);
           
-          if (postIndex !== -1) {
-            this.posts.splice(postIndex, 1);
-            listElement.remove();
-          }
+        //   if (postIndex !== -1) {
+        //     this.posts.splice(postIndex, 1);
+        //     listElement.remove();
+        //   }
 
-          notify.classList.remove('hidden');
-          notify.classList.add('success');
-          notifyTitle.innerHTML = 'Post slettet!';
-          notifyBody.innerHTML = 'Posten ble slettet';
-        } else {
-          notify.classList.remove('hidden');
-          notify.classList.add('error');
-          notifyTitle.innerHTML = 'Posten ble ikke slettet!';
-          notifyBody.innerHTML = 'Posten ble ikke slettet, prøv igjen senere';
-        } 
+        //   notify.classList.remove('hidden');
+        //   notify.classList.add('success');
+        //   notifyTitle.innerHTML = 'Post slettet!';
+        //   notifyBody.innerHTML = 'Posten ble slettet';
+        // } else {
+        //   notify.classList.remove('hidden');
+        //   notify.classList.add('error');
+        //   notifyTitle.innerHTML = 'Posten ble ikke slettet!';
+        //   notifyBody.innerHTML = 'Posten ble ikke slettet, prøv igjen senere';
+        // } 
       }); 
     }); 
  }  
