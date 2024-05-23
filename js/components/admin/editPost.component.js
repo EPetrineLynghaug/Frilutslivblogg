@@ -43,7 +43,7 @@ class EditPost extends HTMLElement {
         }</textarea><br>
 
         <div class="actions">
-          <button type="button" class="hidden btn slett-btn">Slett</button>
+          <button type="button" class="btn slett-btn">Tilbake</button>
           <button type="button" class="btn post-btn">Oppdater</button>
         </div>
       </form>
@@ -52,7 +52,7 @@ class EditPost extends HTMLElement {
 
   listener() {
     const submitButton = this.querySelector(".post-btn");
-    const deleteButton = this.querySelector(".slett-btn");
+    const backButton = this.querySelector(".slett-btn");
 
     const notify = this.querySelector(".notification");
     const notifyTitle = this.querySelector(".notification-title");
@@ -90,23 +90,10 @@ class EditPost extends HTMLElement {
       }
     });
 
-    deleteButton.addEventListener("click", async (event) => {
+    backButton.addEventListener("click", async (event) => {
       event.preventDefault();
-      console.log(this.post.id);
 
-      const deletedPost = await this.bloggService.deletePost(this.post.id);
-
-      if (deletedPost) {
-        notify.classList.remove("hidden");
-        notify.classList.add("success");
-        notifyTitle.innerHTML = "Post slettet!";
-        notifyBody.innerHTML = "Posten ble slettet";
-      } else {
-        notify.classList.remove("hidden");
-        notify.classList.add("error");
-        notifyTitle.innerHTML = "Posten ble ikke slettet!";
-        notifyBody.innerHTML = "Posten ble ikke slettet, prøv igjen senere";
-      }
+      window.location.href = "/post/admin.html";
     });
   }
 }

@@ -180,11 +180,11 @@ app-navbar nav {
   text-align: center;
   font-size: 24px;
 }
-/* .btn-new-post{
+.btn-new-post{
   display: flex;
   justify-content: center;
   align-items: center;
-} */
+}
 
 
 /*Karusellen*/
@@ -469,4 +469,7 @@ input[type="file"] {
   .carousel {
     aspect-ratio: 16 / 6;
   }
+  /* .btn-new-pos{
+    font-size: 32px;
+  } */
 }
