@@ -368,6 +368,7 @@ a.btn {
   box-shadow: var(--box-shadow-sm);
   border: 2px solid transparent;
   color: var(--color-neutral);
+  width: fit-content;
 }
 
 .app-btn-info {

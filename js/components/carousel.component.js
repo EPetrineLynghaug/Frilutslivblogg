@@ -64,7 +64,7 @@ class Carousel extends HTMLElement {
           .join("")}
       </div>
     `;
-  } // render()
+  } 
 
   nextSlide(allSlides, allIndicators) {
     if (this.activeSlideIndex < allSlides.length - 1) {
@@ -78,10 +78,10 @@ class Carousel extends HTMLElement {
 
   prevSlide(allSlides, allIndicators) {
     if (this.activeSlideIndex > 0) {
-      // 0, 1, 2
+      
       this.activeSlideIndex--;
     } else {
-      this.activeSlideIndex = allSlides.length - 1; // 1, 2, 3
+      this.activeSlideIndex = allSlides.length - 1; 
     }
 
     this.updateSlides(allSlides, allIndicators);
@@ -144,6 +144,6 @@ class Carousel extends HTMLElement {
       this.autoPlay = true;
     });
   }
-} // klasse karusell //
+} 
 
 export default Carousel;

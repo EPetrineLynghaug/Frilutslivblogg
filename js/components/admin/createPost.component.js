@@ -10,6 +10,7 @@ class CreatePost extends HTMLElement {
   }
 
   connectedCallback() {
+
     this.render()
         .listener();
   }

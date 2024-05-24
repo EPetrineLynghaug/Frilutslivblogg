@@ -7,7 +7,6 @@
 p{
     width: 100%;
     line-height: 1.3;
-    padding: 20px;
 }
 h1{
      font-size: 24px;
@@ -15,7 +14,31 @@ h1{
         margin-bottom: 20px;
 }
 
+.about-page {
+    display: flex; 
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 20px; 
+    
+}
 
+.about-page img {
+    height: 64px;
+    width: 64px;
+    border-radius: 100%;
+    background-color: var(--color-secondary);
+    object-fit: cover;
+}
+.about-page-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+#forsiden{
+    font-size: 14px;
+   align-self: flex-end;
+}
 
 @media screen and (min-width: 800px) {
     .about-page-img img{
@@ -23,8 +46,15 @@ h1{
         aspect-ratio: 16 / 7;
         object-fit: cover;
     }
-    p{
+    .about-page{
         padding: 40px;
+    }
+    .about-page img{
+        height: 150px;
+        width: 150px;
+    }
+    p{
+
         line-height: 1.5;
         font-size: 18px;
     }
@@ -32,6 +62,9 @@ h1{
         font-size: 28px;
         text-align: center;
         margin-bottom: 20px;
+    }
+    #forsiden{
+        font-size: 16px;
     }
 }
 
@@ -42,13 +75,30 @@ h1{
         object-fit: cover;
     }
     p{
-        padding: 60px;
+    
         line-height: 1.5;
         font-size: 20px;
     }
     h1{
         font-size: 32px;
-        text-align: center;
+        text-align: left;
         margin-bottom: 20px;
     }
+    .about-page {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; 
+        padding: 20px; 
+        align-items: flex-start; 
+        padding: 60px;
+    }
+    
+    .about-page img {
+        height: 350px;
+        width: 350px;
+        border-radius: 100%;
+        background-color: var(--color-secondary);
+        object-fit: cover;
+    }
+    
 }
