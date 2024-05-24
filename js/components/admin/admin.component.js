@@ -68,38 +68,37 @@ class Admin extends HTMLElement {
     });
 
     deleteBtnList.forEach((button) => {
-      button.addEventListener("click", async (event) => {
+      button.addEventListener("click", (event) => {
         event.preventDefault();
         const id = button.getAttribute('data-id');
         const post = this.posts.find((post) => post.id === id);
 
-        const deleteModal = new ModalComponent(post, () => {
-          console.log("Post slettet")
+        const deleteModal = new ModalComponent(post, async () => {
+          const deletedPost = await this.bloggService.deletePost(id);
+
+          if (deletedPost) {
+            const listElement = this.querySelector(`[data-id="${id}"]`);
+            const postIndex = this.posts.findIndex((post) => post.id === id);
+            
+            if (postIndex !== -1) {
+              this.posts.splice(postIndex, 1);
+              listElement.remove();
+            }
+  
+            notify.classList.remove('hidden');
+            notify.classList.add('success');
+            notifyTitle.innerHTML = 'Post slettet!';
+            notifyBody.innerHTML = 'Posten ble slettet';
+          } else {
+            notify.classList.remove('hidden');
+            notify.classList.add('error');
+            notifyTitle.innerHTML = 'Posten ble ikke slettet!';
+            notifyBody.innerHTML = 'Posten ble ikke slettet, prøv igjen senere';
+          } 
         });
 
         this.append(deleteModal);
 
-        // const deletedPost = await this.bloggService.deletePost(id);
-
-        // if (deletedPost) {
-        //   const listElement = this.querySelector(`[data-id="${id}"]`);
-        //   const postIndex = this.posts.findIndex((post) => post.id === id);
-          
-        //   if (postIndex !== -1) {
-        //     this.posts.splice(postIndex, 1);
-        //     listElement.remove();
-        //   }
-
-        //   notify.classList.remove('hidden');
-        //   notify.classList.add('success');
-        //   notifyTitle.innerHTML = 'Post slettet!';
-        //   notifyBody.innerHTML = 'Posten ble slettet';
-        // } else {
-        //   notify.classList.remove('hidden');
-        //   notify.classList.add('error');
-        //   notifyTitle.innerHTML = 'Posten ble ikke slettet!';
-        //   notifyBody.innerHTML = 'Posten ble ikke slettet, prøv igjen senere';
-        // } 
       }); 
     }); 
  }  

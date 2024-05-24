@@ -29,7 +29,7 @@ class Login extends HTMLElement {
             </div>
 
             <div class="actions">
-              <a href="/register.html">Registrer</a>
+              <a href="/account/register.html">Registrer</a>
             <button type="button" class="btn login-btn">Logg in</button>
             </div>
           </form>

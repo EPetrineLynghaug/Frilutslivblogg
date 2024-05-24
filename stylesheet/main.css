@@ -370,6 +370,10 @@ a.btn {
   color: var(--color-neutral);
   width: fit-content;
 }
+.btn:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
 
 .app-btn-info {
   background-color: var(--color-info);
@@ -437,7 +441,7 @@ textarea {
   border-radius: 4px;
   box-sizing: border-box;
   height: 200px;
-  resize: 0;
+  resize: none;
 }
 
 input[type="text"],
