@@ -14,6 +14,7 @@ import BloggCards from './components/blogg.component.js';
 import SinglePost from './components/singlepost.component.js';
 import Footer from './components/footer.component.js';
 import SidebarComponent from './components/singlepost-sidebar.component.js';
+import About from './components/admin/about.component.js';
 
 import ModalComponent from './components/admin/modal.component.js';
 
@@ -29,5 +30,6 @@ customElements.define('app-admin', Admin);
 customElements.define('app-edit', EditPost);
 customElements.define('app-footer', Footer);
 customElements.define('app-sidebar', SidebarComponent);
+customElements.define('app-about', About);
 
 customElements.define('app-modal', ModalComponent);

@@ -73,7 +73,10 @@ class Admin extends HTMLElement {
         const id = button.getAttribute('data-id');
         const post = this.posts.find((post) => post.id === id);
 
-        const deleteModal = new ModalComponent(post, () => {console.log("Post slettet")});
+        const deleteModal = new ModalComponent(post, () => {
+          console.log("Post slettet")
+        });
+
         this.append(deleteModal);
 
         // const deletedPost = await this.bloggService.deletePost(id);
