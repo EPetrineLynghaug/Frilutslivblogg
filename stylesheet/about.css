@@ -45,6 +45,10 @@ h1{
         width: 100%;
         aspect-ratio: 16 / 7;
         object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        flex: 1;
+        height: 100%;
     }
     .about-page{
         padding: 40px;
@@ -73,6 +77,8 @@ h1{
         width: 100%;
         aspect-ratio: 16 / 6;
         object-fit: cover;
+     
+    
     }
     p{
     
@@ -100,5 +106,6 @@ h1{
         background-color: var(--color-secondary);
         object-fit: cover;
     }
+    
     
 }
