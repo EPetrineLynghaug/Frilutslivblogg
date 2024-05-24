@@ -1,7 +1,6 @@
 // Create a class for the element
 class Navbar extends HTMLElement {
   constructor() {
-    // Always call super first in constructor
     super();
     this.menuOpen = false;
 
@@ -57,10 +56,10 @@ class Navbar extends HTMLElement {
         <div class="dropdown">
           <ul>
             <li>
-              <a href="#">Hjem</a>
+              <a href="/index.html">Hjem</a>
             </li>
             <li>
-              <a href="#">Om meg</a>
+              <a href="/about.html">Om meg</a>
             </li>
           </ul>
         </div>
@@ -86,9 +85,9 @@ class Navbar extends HTMLElement {
       }
     });
 
-  }//listener//
+  }
 
-} //class navbar//
+} 
 
 
 export default Navbar;

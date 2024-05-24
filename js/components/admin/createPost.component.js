@@ -10,12 +10,6 @@ class CreatePost extends HTMLElement {
   }
 
   connectedCallback() {
-    // if (!this.authService.isLoggedIn()) {
-    //   window.location.href = '/account/login.html';
-    // }
-
-    // this.render();
-    // this.listener();
     this.render()
         .listener();
   }
