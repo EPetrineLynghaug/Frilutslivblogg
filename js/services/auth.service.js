@@ -4,11 +4,11 @@ class AuthService {
   }
 
   getAccessToken() {
-    let token = localStorage.getItem('token');
+    let token = localStorage.getItem("token");
 
     if (token) {
-        token = JSON.parse(token);
-        return token;
+      token = JSON.parse(token);
+      return token;
     }
   }
 

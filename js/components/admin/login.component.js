@@ -1,4 +1,4 @@
-import AuthService from '../../services/auth.service.js';
+import AuthService from "../../services/auth.service.js";
 
 class Login extends HTMLElement {
   constructor() {
@@ -61,7 +61,7 @@ class Login extends HTMLElement {
       }
 
       if (await this.authService.login(emailInput.value, passwordInput.value)) {
-        window.location.href = '/post/admin.html';
+        window.location.href = "/post/admin.html";
       } else {
         submitButton.disabled = false;
         console.log("Feil brukernavn eller passord");

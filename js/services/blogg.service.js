@@ -27,9 +27,9 @@ class BloggService {
                 "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify(post),
-        })
+        });
 
-        console.log(response);
+        
 
         if (response.ok) {
             response = await response.json();
@@ -37,7 +37,7 @@ class BloggService {
         } else {
             return false;
         }
-    };
+    }
 
     async editPost(post, id) {
         const token = this.getAccessToken();
@@ -54,10 +54,9 @@ class BloggService {
            response = await response.json();
            return response.data;
        } else {
-           console.log(response);
            return false;
-       };
-    };
+       }
+    }
 
     async deletePost(id) {
         let response = await fetch(`${this.baseUrl}/${id}`, {
@@ -82,16 +81,15 @@ class BloggService {
         }
 
         let response = await fetch(url);
-        console.log(response);
+        
 
         if (response.ok) {
             response = await response.json();
             return response.data;
         } else {
-            console.log(response);
             return false;
-        };
-    };
+        }
+    }
 
     async getSinglePost(id) {
         let response = await fetch(`${this.baseUrl}/${id}`);
@@ -100,7 +98,6 @@ class BloggService {
             response = await response.json();
             return response.data;
         } else {
-            console.log(response);
             return false;
         }
     }

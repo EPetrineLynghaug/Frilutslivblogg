@@ -64,7 +64,7 @@ class Carousel extends HTMLElement {
           .join("")}
       </div>
     `;
-  } 
+  }
 
   nextSlide(allSlides, allIndicators) {
     if (this.activeSlideIndex < allSlides.length - 1) {
@@ -78,10 +78,9 @@ class Carousel extends HTMLElement {
 
   prevSlide(allSlides, allIndicators) {
     if (this.activeSlideIndex > 0) {
-      
       this.activeSlideIndex--;
     } else {
-      this.activeSlideIndex = allSlides.length - 1; 
+      this.activeSlideIndex = allSlides.length - 1;
     }
 
     this.updateSlides(allSlides, allIndicators);
@@ -144,6 +143,6 @@ class Carousel extends HTMLElement {
       this.autoPlay = true;
     });
   }
-} 
+}
 
 export default Carousel;

@@ -2,7 +2,7 @@ class ModalComponent extends HTMLElement {
   constructor(post, callback) {
     super();
 
-    this.confirmText = 'ja jeg vil slette posten';
+    this.confirmText = "ja jeg vil slette posten";
     this.post = post;
     this.callback = callback;
   }
@@ -37,30 +37,33 @@ class ModalComponent extends HTMLElement {
   }
 
   listeners() {
-    const modalCancel = this.querySelector('#modal-cancel');
-    const modalConfirm = this.querySelector('#modal-confirm');
-    const modalInput = this.querySelector('#modal-input');
+    const modalCancel = this.querySelector("#modal-cancel");
+    const modalConfirm = this.querySelector("#modal-confirm");
+    const modalInput = this.querySelector("#modal-input");
 
-    modalCancel.addEventListener('click', (event) => {
-        event.preventDefault();
-        console.log('cancel');
-        this.remove();
+    modalCancel.addEventListener("click", (event) => {
+      event.preventDefault();
+      console.log("cancel");
+      this.remove();
     });
 
-    modalConfirm.addEventListener('click', (event) => {
+    modalConfirm.addEventListener("click", (event) => {
+      event.preventDefault();
+      this.delete();
+    });
+
+    modalInput.addEventListener("keyup", (event) => {
+      if (modalInput.value.toLowerCase() === this.confirmText) {
+        modalConfirm.removeAttribute("disabled");
+      }
+
+      if (
+        event.key === "Enter" &&
+        modalInput.value.toLowerCase() === this.confirmText
+      ) {
         event.preventDefault();
         this.delete();
-    });
-
-    modalInput.addEventListener('keyup', (event) => {
-        if (modalInput.value.toLowerCase() === this.confirmText) {
-            modalConfirm.removeAttribute('disabled');
-        }
-
-        if (event.key === 'Enter' && modalInput.value.toLowerCase() === this.confirmText) {
-            event.preventDefault();
-            this.delete();
-        }
+      }
     });
   }
 }

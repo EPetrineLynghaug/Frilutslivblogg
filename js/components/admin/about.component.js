@@ -1,7 +1,7 @@
 
 class About extends HTMLElement {
  constructor(){
-  super()
+  super();
 
  }
 
@@ -28,7 +28,7 @@ this.innerHTML = `
         </div> 
         <img src="./media/suzie.png" alt="suzie, tegnet av meg">
     </div>
-`
-};
+`;
 }
-export default About
+}
+export default About;

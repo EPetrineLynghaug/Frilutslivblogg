@@ -10,9 +10,7 @@ class CreatePost extends HTMLElement {
   }
 
   connectedCallback() {
-
-    this.render()
-        .listener();
+    this.render().listener();
   }
 
   render() {
@@ -42,9 +40,9 @@ class CreatePost extends HTMLElement {
   listener() {
     const submitButton = this.querySelector(".post-btn");
 
-    const notify = this.querySelector('.notification');
-    const notifyTitle = this.querySelector('.notification-title');
-    const notifyBody = this.querySelector('.notification-body');
+    const notify = this.querySelector(".notification");
+    const notifyTitle = this.querySelector(".notification-title");
+    const notifyBody = this.querySelector(".notification-body");
 
     const imageInput = this.querySelector("#image");
     const titleInput = this.querySelector("#title");
@@ -57,26 +55,28 @@ class CreatePost extends HTMLElement {
         title: titleInput.value,
         body: textInput.value,
         media: {
-           url: imageInput.value,
+          url: imageInput.value,
         },
       };
 
       const response = await this.bloggService.createPost(post);
-      
+
       if (response) {
-        notify.classList.remove('hidden');
-        notify.classList.add('success');
-        notifyTitle.innerHTML = 'Post opprettet!';
-        notifyBody.innerHTML = 'Posten ble opprettet, gå tilbake til administrasjons panelet for å se posten';
+        notify.classList.remove("hidden");
+        notify.classList.add("success");
+        notifyTitle.innerHTML = "Post opprettet!";
+        notifyBody.innerHTML =
+          "Posten ble opprettet, gå tilbake til administrasjons panelet for å se posten";
       } else {
-        notify.classList.remove('hidden');
-        notify.classList.add('error');
-        notifyTitle.innerHTML = 'Det skjedde en feil!';
-        notifyBody.innerHTML = 'Posten ble ikke opprettet, sjekk at du er logget inn!';
+        notify.classList.remove("hidden");
+        notify.classList.add("error");
+        notifyTitle.innerHTML = "Det skjedde en feil!";
+        notifyBody.innerHTML =
+          "Posten ble ikke opprettet, sjekk at du er logget inn!";
       }
     });
-  
+
     return this;
   }
 }
- export default CreatePost;
+export default CreatePost;

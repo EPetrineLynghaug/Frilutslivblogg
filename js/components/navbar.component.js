@@ -4,34 +4,31 @@ class Navbar extends HTMLElement {
     super();
     this.menuOpen = false;
 
-    
     this.menu = [
       {
-        text: 'Hjem',
-        href: '/index.html'
+        text: "Hjem",
+        href: "/index.html",
       },
       {
-        text: 'Om meg',
-        href: '/about.html'
+        text: "Om meg",
+        href: "/about.html",
       },
     ];
   } //constructor//
 
   currentPage(pagePath) {
     const pathname = window.location.pathname;
-    return pagePath === pathname
-      ? true
-      : false;
+    return pagePath === pathname ? true : false;
   }
 
   connectedCallback() {
-    this.render()
+    this.render();
     this.listener();
   }
 
   menuItem(item) {
     return `
-      <li class="${this.currentPage(item.href) ? 'active' : 'inactive'}">
+      <li class="${this.currentPage(item.href) ? "active" : "inactive"}">
         <a href="${item.href}">${item.text}</a>
       </li>
     `;
@@ -45,7 +42,7 @@ class Navbar extends HTMLElement {
 
       <nav class="desktop-menu">
         <ul>
-          ${this.menu.map(item => this.menuItem(item)).join('')}
+          ${this.menu.map((item) => this.menuItem(item)).join("")}
         </ul>
       </nav>
       <nav class="mobile-menu">
@@ -65,12 +62,12 @@ class Navbar extends HTMLElement {
         </div>
       </nav>
     `;
-  }//render//
+  } //render//
 
-  listener(){
+  listener() {
     let menuButton = this.querySelector("#menuToggle");
-    let dropdownMenu = this.querySelector(".dropdown")
-    
+    let dropdownMenu = this.querySelector(".dropdown");
+
     menuButton.addEventListener("click", (event) => {
       event.preventDefault();
 
@@ -80,14 +77,11 @@ class Navbar extends HTMLElement {
         menuButton.innerHTML = '<i class="nf nf-md-close"></i> Meny';
         dropdownMenu.classList.add("open");
       } else {
-        menuButton.innerHTML = '<i class="nf nf-md-menu"></i> Meny'
+        menuButton.innerHTML = '<i class="nf nf-md-menu"></i> Meny';
         dropdownMenu.classList.remove("open");
       }
     });
-
   }
-
-} 
-
+}
 
 export default Navbar;

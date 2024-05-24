@@ -1,26 +1,24 @@
-class Card extends HTMLElement{
-    constructor(id, image, title, body, author, created){
-     super()
-     this.id = id;
-     this.title = title;
-     this.author = author;
-     this.created = new Date(created).toDateString();
+class Card extends HTMLElement {
+  constructor(id, image, title, body, author, created) {
+    super();
+    this.id = id;
+    this.title = title;
+    this.author = author;
+    this.created = new Date(created).toDateString();
 
-     this.img = image ? image.url : 'https://picsum.photos/200';
-     this.alt = image ? image.alt : 'Lorem Picsum: The Lorem Ipsum for photos';
-     this.body = body ? body : '';
-    }
+    this.img = image ? image.url : "https://picsum.photos/200";
+    this.alt = image ? image.alt : "Lorem Picsum: The Lorem Ipsum for photos";
+    this.body = body ? body : "";
+  }
 
+  connectedCallback() {
+    this.render();
+    this.listener();
+  }
 
-
-    connectedCallback() {
-        this.render();
-        this.listener();
-    };
-
-    render() {
-    this.classList.add("card-container")
-    this.innerHTML= `
+  render() {
+    this.classList.add("card-container");
+    this.innerHTML = `
         <div class="hero-container">
             <img src="${this.img}" alt="${this.alt}">
          </div>
@@ -47,17 +45,16 @@ class Card extends HTMLElement{
             </button>
         </div>
     `;
-    }
-    
-    listener(){
-       const readMore = this.querySelector(".card-read-more");
-       
-        readMore.addEventListener("click", (event) => {
-            event.preventDefault();
-            window.location.href = `/post/index.html?id=${this.id}`
-        })
-    };
-};
+  }
 
+  listener() {
+    const readMore = this.querySelector(".card-read-more");
 
-export default Card; 
+    readMore.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.location.href = `/post/index.html?id=${this.id}`;
+    });
+  }
+}
+
+export default Card;

@@ -24,7 +24,7 @@ class Admin extends HTMLElement {
   renderListItem(post) {
     return `
       <li data-id="${post.id}">
-        <img class="thumbnail" src="${post.media ? post.media.url : ''}">
+        <img class="thumbnail" src="${post.media ? post.media.url : ""}">
         <span>${post.title}</span>
         <button data-id="${post.id}" class="btn edit-btn">Rediger</button>
         <button data-id="${post.id}" class="btn delete-btn">Slett</button>
@@ -46,23 +46,23 @@ class Admin extends HTMLElement {
       </div>
       
       <ul class="admin-list">
-        ${ this.posts.map((post) => this.renderListItem(post)).join('') }
+        ${this.posts.map((post) => this.renderListItem(post)).join("")}
       </ul>
     `;
   }
 
- listner() {
-    const editButtonList = this.querySelectorAll(".edit-btn"); 
+  listner() {
+    const editButtonList = this.querySelectorAll(".edit-btn");
     const deleteBtnList = this.querySelectorAll(".delete-btn");
 
-    const notify = this.querySelector('.notification');
-    const notifyTitle = this.querySelector('.notification-title');
-    const notifyBody = this.querySelector('.notification-body');
+    const notify = this.querySelector(".notification");
+    const notifyTitle = this.querySelector(".notification-title");
+    const notifyBody = this.querySelector(".notification-body");
 
     editButtonList.forEach((button) => {
       button.addEventListener("click", (event) => {
         event.preventDefault();
-        const id = button.getAttribute('data-id');
+        const id = button.getAttribute("data-id");
         window.location.href = `/post/edit.html?id=${id}`;
       });
     });
@@ -70,7 +70,7 @@ class Admin extends HTMLElement {
     deleteBtnList.forEach((button) => {
       button.addEventListener("click", (event) => {
         event.preventDefault();
-        const id = button.getAttribute('data-id');
+        const id = button.getAttribute("data-id");
         const post = this.posts.find((post) => post.id === id);
 
         const deleteModal = new ModalComponent(post, async () => {
@@ -79,29 +79,28 @@ class Admin extends HTMLElement {
           if (deletedPost) {
             const listElement = this.querySelector(`[data-id="${id}"]`);
             const postIndex = this.posts.findIndex((post) => post.id === id);
-            
+
             if (postIndex !== -1) {
               this.posts.splice(postIndex, 1);
               listElement.remove();
             }
-  
-            notify.classList.remove('hidden');
-            notify.classList.add('success');
-            notifyTitle.innerHTML = 'Post slettet!';
-            notifyBody.innerHTML = 'Posten ble slettet';
+
+            notify.classList.remove("hidden");
+            notify.classList.add("success");
+            notifyTitle.innerHTML = "Post slettet!";
+            notifyBody.innerHTML = "Posten ble slettet";
           } else {
-            notify.classList.remove('hidden');
-            notify.classList.add('error');
-            notifyTitle.innerHTML = 'Posten ble ikke slettet!';
-            notifyBody.innerHTML = 'Posten ble ikke slettet, prøv igjen senere';
-          } 
+            notify.classList.remove("hidden");
+            notify.classList.add("error");
+            notifyTitle.innerHTML = "Posten ble ikke slettet!";
+            notifyBody.innerHTML = "Posten ble ikke slettet, prøv igjen senere";
+          }
         });
 
         this.append(deleteModal);
-
-      }); 
-    }); 
- }  
+      });
+    });
+  }
 }
 
 export default Admin;

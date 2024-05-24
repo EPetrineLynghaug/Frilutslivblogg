@@ -1,5 +1,5 @@
-import Card from './card.component.js';
-import BloggService from '../services/blogg.service.js';
+import Card from "./card.component.js";
+import BloggService from "../services/blogg.service.js";
 
 class BloggCards extends HTMLElement {
   constructor() {
@@ -16,7 +16,7 @@ class BloggCards extends HTMLElement {
   async render() {
     const allPosts = await this.bloggService.getAllPosts(); // allPosts = [...] || allPosts = false
 
-    this.classList.add('post-container');
+    this.classList.add("post-container");
     allPosts.map((post) => {
       let newCard = new Card(
         post.id,
@@ -24,7 +24,7 @@ class BloggCards extends HTMLElement {
         post.title,
         post.body,
         post.author.name,
-        post.created,
+        post.created
       );
       this.append(newCard);
     });
