@@ -49,10 +49,10 @@ class Carousel extends HTMLElement {
     this.innerHTML = `
       ${this.slides.map((slide) => this.newSlide(slide)).join("")}
 
-      <button class="prev slide-btn-prev" name="image carousel previous slide">
+      <button class="prev slide-btn-prev" aria-label="image carousel previous slide">
         <i class="nf nf-fa-chevron_left"></i>
       </button>
-      <button class="next slide-btn-next" name="image carousel next slide">
+      <button class="next slide-btn-next" aria-label="image carousel next slide">
         <i class="nf nf-fa-chevron_right"></i>
       </button>
 
