@@ -15,7 +15,7 @@ class Login extends HTMLElement {
   render() {
     this.classList.add("login");
     this.innerHTML = `
-        <img src="../media/Eventyrer.JPG" alt="Bilde" style="width:100%">
+        <img src="../media/Eventyrer.JPG" alt="branding" style="width:100%">
         <div class="login-container">
           <form>
             <div class="input-wrapper">
