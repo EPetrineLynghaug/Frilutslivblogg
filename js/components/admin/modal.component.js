@@ -43,7 +43,6 @@ class ModalComponent extends HTMLElement {
 
     modalCancel.addEventListener("click", (event) => {
       event.preventDefault();
-      console.log("cancel");
       this.remove();
     });
 

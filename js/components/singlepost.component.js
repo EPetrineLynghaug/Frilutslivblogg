@@ -19,7 +19,6 @@ class SinglePost extends HTMLElement {
     const id = urlParams.get(`id`);
 
     this.post = await this.bloggService.getSinglePost(id);
-    console.log(this.post);
   }
 
   render() {

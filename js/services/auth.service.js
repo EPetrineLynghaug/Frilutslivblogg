@@ -21,25 +21,28 @@ class AuthService {
   }
 
   async login(email, password) {
-    const reqBody = {
-      email: email,
-      password: password,
-    };
+    try {
+      const reqBody = {
+        email: email,
+        password: password,
+      };
 
-    let response = await fetch(`${this.baseUrl}/login`, {
-      method: "POST",
-      headers: {
-        "content-Type": "application/json",
-      },
-      body: JSON.stringify(reqBody),
-    });
+      let response = await fetch(`${this.baseUrl}/login`, {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+        },
+        body: JSON.stringify(reqBody),
+      });
+      const data = await response.json();
 
-    if (response.ok) {
-      response = await response.json();
-      localStorage.setItem("token", JSON.stringify(response.data.accessToken));
+      if (!response.ok) throw new Error(`${data.statusCode} - ${data.status}`);
+
+      localStorage.setItem("token", JSON.stringify(data.accessToken));
 
       return true;
-    } else {
+    } catch (err) {
+      console.error(err.message);
       return false;
     }
   }
