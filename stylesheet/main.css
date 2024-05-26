@@ -391,6 +391,12 @@ a.btn {
   background-color: var(--color-info);
 }
 
+.card-read-more:hover {
+  background-color: var(--color-base-100);
+  color: var(--color-info);
+  border: 1px solid var(--color-info);
+}
+
 .login-btn {
   background-color: var(--color-success);
 }

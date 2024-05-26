@@ -14,7 +14,7 @@ class Navbar extends HTMLElement {
         href: "/about.html",
       },
     ];
-  } //constructor//
+  } 
 
   currentPage(pagePath) {
     const pathname = window.location.pathname;
@@ -62,7 +62,7 @@ class Navbar extends HTMLElement {
         </div>
       </nav>
     `;
-  } //render//
+  } 
 
   listener() {
     let menuButton = this.querySelector("#menuToggle");
