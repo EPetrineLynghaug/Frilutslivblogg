@@ -27,74 +27,97 @@ class BloggService {
         },
         body: JSON.stringify(post),
       });
-      const data = await response.json();
+      const res = await response.json();
 
-      if (!response.ok) throw new Error(`${data.statusCode} - ${data.status}`);
+      if (!response.ok) throw new Error(`${res.statusCode} - ${res.status}`);
 
-      return data;
+      return res;
     } catch (err) {
       console.error(err.message);
     }
   }
 
   async editPost(post, id) {
-    const token = this.getAccessToken();
-    let response = await fetch(`${this.baseUrl}/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(post),
-    });
+    try {
+      console.log(post);
+      const token = this.getAccessToken();
 
-    if (response.ok) {
-      response = await response.json();
-      return response.data;
-    } else {
-      return false;
+      let response = await fetch(`${this.baseUrl}/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(post),
+      });
+      const res = await response.json();
+
+      if (!response.ok) throw new Error(`${res.statusCode} - ${res.status}`);
+
+      return res;
+    } catch (err) {
+      console.error(err.message);
     }
   }
 
   async deletePost(id) {
-    let response = await fetch(`${this.baseUrl}/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${this.getAccessToken()}`,
-      },
-    });
+    try {
+      const token = this.getAccessToken();
 
-    if (response.ok) {
-      return true;
-    } else {
-      return false;
+      const response = await fetch(`${this.baseUrl}/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${this.getAccessToken()}`,
+        },
+      });
+      const res = await response.json();
+
+      if (!response.ok) throw new Error(`${res.statusCode} - ${res.status}`);
+
+      return res;
+    } catch (err) {
+      console.error(err.message);
+      return {};
     }
   }
 
   async getAllPosts(limit = null) {
-    let url = this.baseUrl; // https://v2.api.noroff.dev/blog/posts/petrine
-    if (limit) {
-      url += `?limit=${limit}`; // url + ?limit=X
-    }
+    try {
+      const token = this.getAccessToken();
 
-    let response = await fetch(url);
+      let url = this.baseUrl; // https://v2.api.noroff.dev/blog/posts/petrine
+      if (limit) {
+        url += `?limit=${limit}`; // url + ?limit=X
+      }
 
-    if (response.ok) {
-      response = await response.json();
-      return response.data;
-    } else {
-      return false;
+      const response = await fetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const res = await response.json();
+
+      if (!response.ok) throw new Error(`${res.statusCode} - ${res.status}`);
+
+      return res.data;
+    } catch (err) {
+      console.error(err.message);
+      return [];
     }
   }
 
   async getSinglePost(id) {
-    let response = await fetch(`${this.baseUrl}/${id}`);
+    try {
+      const response = await fetch(`${this.baseUrl}/${id}`);
+      const res = await response.json();
 
-    if (response.ok) {
-      response = await response.json();
-      return response.data;
-    } else {
+      if (!response.ok) throw new Error(`${res.statusCode} - ${res.status}`);
+
+      return res.data;
+    } catch (err) {
+      console.error(err.message);
       return false;
     }
   }

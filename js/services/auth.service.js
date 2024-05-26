@@ -34,11 +34,11 @@ class AuthService {
         },
         body: JSON.stringify(reqBody),
       });
-      const data = await response.json();
+      const res = await response.json();
 
-      if (!response.ok) throw new Error(`${data.statusCode} - ${data.status}`);
+      if (!response.ok) throw new Error(`${res.statusCode} - ${res.status}`);
 
-      localStorage.setItem("token", JSON.stringify(data.accessToken));
+      localStorage.setItem("token", JSON.stringify(res.data.accessToken));
 
       return true;
     } catch (err) {
@@ -48,29 +48,27 @@ class AuthService {
   }
 
   async register(name, email, password) {
-    const reqBody = {
-      name: name,
-      email: email,
-      password: password,
-    };
+    try {
+      const reqBody = {
+        name: name,
+        email: email,
+        password: password,
+      };
 
-    let response = await fetch(`${this.baseUrl}/register`, {
-      method: "POST",
-      headers: {
-        "content-Type": "application/json",
-      },
-      body: JSON.stringify(reqBody),
-    });
+      let response = await fetch(`${this.baseUrl}/register`, {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+        },
+        body: JSON.stringify(reqBody),
+      });
+      const res = await response.json();
 
-    console.log(response);
-
-    if (response.ok) {
-      response = await response.json();
-      console.log(response);
+      if (!response.ok) throw new Error(`${res.statusCode} - ${res.status}`);
 
       return true;
-    } else {
-      console.log(response);
+    } catch (err) {
+      console.error(err.message);
       return false;
     }
   }
