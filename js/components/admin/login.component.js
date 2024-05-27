@@ -15,6 +15,10 @@ class Login extends HTMLElement {
   render() {
     this.classList.add("login");
     this.innerHTML = `
+    <div class="notification hidden">
+    <span class="notification-title"></span>
+    <span class="notification-body"></span>
+  </div>
         <img src="../media/Eventyrer.JPG" alt="branding" style="width:100%">
         <div class="login-container">
           <form>
@@ -39,6 +43,10 @@ class Login extends HTMLElement {
 
   listener() {
     const submitButton = this.querySelector(".login-btn");
+
+    const notify = this.querySelector(".notification");
+    const notifyTitle = this.querySelector(".notification-title");
+    const notifyBody = this.querySelector(".notification-body");
 
     const emailInput = this.querySelector("#Email");
     const passwordInput = this.querySelector("#Passord");
@@ -67,6 +75,7 @@ class Login extends HTMLElement {
         notify.classList.remove("hidden");
         notify.classList.add("error");
         notifyTitle.innerHTML = "Brukernavn eller passord er feil!";
+        notifyBody.innerHTML = "Prøv igjen";
       }
     });
   }

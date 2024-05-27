@@ -15,6 +15,10 @@ class Register extends HTMLElement {
   render() {
     this.classList.add("register");
     this.innerHTML = `
+    <div class="notification hidden">
+    <span class="notification-title"></span>
+    <span class="notification-body"></span>
+  </div>
       <img src="../media/Eventyrer.JPG" alt="Bilde" style="width:100%">
       <div class="register-container">
         <form>
@@ -42,6 +46,10 @@ class Register extends HTMLElement {
   listener() {
     const submitButton = this.querySelector(".registrer-btn");
 
+    const notify = this.querySelector(".notification");
+    const notifyTitle = this.querySelector(".notification-title");
+    const notifyBody = this.querySelector(".notification-body");
+
     const nameInput = this.querySelector("#Name");
     const emailInput = this.querySelector("#Email");
     const passwordInput = this.querySelector("#Passord");
@@ -54,18 +62,26 @@ class Register extends HTMLElement {
 
       if (nameInput.value.length <= 1) {
         console.log("For kort navn, navn må være mer en 1 tegn.");
+        return;
       }
 
       let emailMatch = emailRegex.exec(emailInput.value);
       if (!emailMatch) {
-        console.log("Emailen tilhører ikke en Noroff bruker");
+        notify.classList.remove("hidden");
+        notify.classList.add("error");
+        notifyTitle.innerHTML = "Feil epost";
+        notifyBody.innerHTML = "Eposten må være en noroff e-post. ";
+        return;
       }
 
       let passwordMatch = pswRegex.exec(passwordInput.value);
       if (!passwordMatch) {
-        console.log(
-          "Passord må inneholde; liten bokstav, stor bokstav, minst 1 tall og være 8-20 tegn"
-        );
+        notify.classList.remove("hidden");
+        notify.classList.add("error");
+        notifyTitle.innerHTML = "Ugyldig passord";
+        notifyBody.innerHTML =
+          "passord mål være mellom 8-20 tegn og inneholde en bokstav. ";
+        return;
       }
 
       if (
@@ -75,9 +91,15 @@ class Register extends HTMLElement {
           passwordInput.value
         )
       ) {
-        console.log("Registrering vellykket");
+        notify.classList.remove("hidden");
+        notify.classList.add("success");
+        notifyTitle.innerHTML = "registerer vellykket!";
+        notifyBody.innerHTML = "Du er nå registert";
       } else {
-        console.error("Noe gikk gale.");
+        notify.classList.remove("hidden");
+        notify.classList.add("error");
+        notifyTitle.innerHTML = "Register feilet!";
+        notifyBody.innerHTML = "Registreringen feilet, prøv igjen. ";
       }
     });
   }
