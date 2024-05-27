@@ -286,6 +286,9 @@ app-navbar nav {
   margin: 0;
   font-size: 24px;
   text-shadow: 0 0 30px #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .caption p {
   font-size: 14px;

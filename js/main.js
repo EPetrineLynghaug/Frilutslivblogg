@@ -1,5 +1,3 @@
-// All posts: https://v2.api.noroff.dev/blog/posts/petrine
-// Single post: https://v2.api.noroff.dev/blog/posts/petrine/3fa85f64-5717-4562-b3fc-2c963f66afa6
 
 import Login from "./components/admin/login.component.js";
 import Register from "./components/admin/register.component.js";
@@ -14,7 +12,7 @@ import BloggCards from "./components/blogg.component.js";
 import SinglePost from "./components/singlepost.component.js";
 import Footer from "./components/footer.component.js";
 import SidebarComponent from "./components/singlepost-sidebar.component.js";
-import About from "./components/admin/about.component.js";
+import About from "./components/about.component.js";
 
 import ModalComponent from "./components/admin/modal.component.js";
 

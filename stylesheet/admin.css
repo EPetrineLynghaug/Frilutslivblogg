@@ -1,20 +1,34 @@
 
 /*ADMIN side*/
 .admin-list {
+  width: 100%;
   list-style-type: none;
   margin: 0;
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
 }
 
 .admin-list li {
+  width: 100%;
+  max-width: 1000px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  background-color: #f9f9f9;
+  flex-direction: column;
+  background-color: var(--color-base-200);
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.admin-list li:nth-child(even) {
+  background-color: var(--color-base-300);
+}
+.admin-list li .admin-list-inner {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .admin-list li .thumbnail {
@@ -115,4 +129,15 @@ app-modal .modal-card input#modal-input {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+}
+
+@media screen and (min-width: 800px) {
+  .admin-list li {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .admin-list li .admin-list-inner {
+    width: auto;
+  }
 }

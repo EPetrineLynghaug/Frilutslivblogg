@@ -11,9 +11,9 @@ class Admin extends HTMLElement {
   }
 
   async connectedCallback() {
-    // if (!this.authService.isLoggedIn()) {
-    //   window.location.href = '/account/login.html';
-    // }
+    if (!this.authService.isLoggedIn()) {
+      window.location.href = '/account/login.html';
+    }
 
     this.posts = await this.bloggService.getAllPosts();
 
@@ -24,10 +24,14 @@ class Admin extends HTMLElement {
   renderListItem(post) {
     return `
       <li data-id="${post.id}">
-        <img class="thumbnail" src="${post.media ? post.media.url : ""}">
-        <span>${post.title}</span>
-        <button data-id="${post.id}" class="btn edit-btn">Rediger</button>
-        <button data-id="${post.id}" class="btn delete-btn">Slett</button>
+        <div class="admin-list-inner">
+          <img class="thumbnail" src="${post.media ? post.media.url : ""}">
+          <span>${post.title}</span>
+        </div>
+        <div class="admin-list-inner">
+          <button data-id="${post.id}" class="btn edit-btn">Rediger</button>
+          <button data-id="${post.id}" class="btn delete-btn">Slett</button>
+        </div>
       </li>
     `;
   }

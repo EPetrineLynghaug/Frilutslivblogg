@@ -1,9 +1,11 @@
+import AuthService from "../../services/auth.service.js";
 import BloggService from "../../services/blogg.service.js";
 
 class EditPost extends HTMLElement {
   constructor() {
     super();
 
+    this.authService = new AuthService();
     this.bloggService = new BloggService();
     this.post = null;
   }
@@ -16,6 +18,10 @@ class EditPost extends HTMLElement {
   }
 
   async connectedCallback() {
+    if (!this.authService.isLoggedIn()) {
+      window.location.href = '/account/login.html';
+    }
+
     this.post = await this.getSinglePost();
 
     this.render();
