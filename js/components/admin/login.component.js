@@ -64,7 +64,9 @@ class Login extends HTMLElement {
         window.location.href = "/post/admin.html";
       } else {
         submitButton.disabled = false;
-        console.log("Feil brukernavn eller passord");
+        notify.classList.remove("hidden");
+        notify.classList.add("error");
+        notifyTitle.innerHTML = "Brukernavn eller passord er feil!";
       }
     });
   }
