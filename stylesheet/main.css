@@ -589,7 +589,10 @@ app-sidebar h2 {
   text-decoration: underline;
 }
 .sidebar-box-title {
-  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-size: 1.2rem;
   font-weight: bold;
 }
