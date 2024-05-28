@@ -7,6 +7,7 @@ class EditPost extends HTMLElement {
 
     this.authService = new AuthService();
     this.bloggService = new BloggService();
+
     this.post = null;
   }
 

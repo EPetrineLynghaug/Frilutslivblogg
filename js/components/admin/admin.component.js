@@ -7,6 +7,7 @@ class Admin extends HTMLElement {
     super();
     this.authService = new AuthService();
     this.bloggService = new BloggService();
+
     this.posts = null;
   }
 
@@ -38,6 +39,7 @@ class Admin extends HTMLElement {
 
   render() {
     this.classList.add("admin-container");
+
     this.innerHTML = `
          <div class="notification hidden">
           <span class="notification-title"></span>

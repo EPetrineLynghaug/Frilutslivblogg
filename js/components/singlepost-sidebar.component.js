@@ -6,9 +6,9 @@ class SidebarComponent extends HTMLElement {
 
     this.bloggService = new BloggService();
 
-    this.currentPostId = this.getAttribute("id");
     this.prevPost = null;
     this.nextPost = null;
+    this.currentPostId = this.getAttribute("id");
   }
 
   selectNextPost(allPosts, idx) {
@@ -44,30 +44,31 @@ class SidebarComponent extends HTMLElement {
 
   render() {
     this.innerHTML = `
-        <h2>Les flere poster</h2>
+      <h2>Les flere poster</h2>
 
-        <div class="sidebar-prev-box">
-          <div class="sidebar-box-card">
-            <img src="${this.prevPost.media.url}" />
-            <div class="sidebar-box-content">
-              <a href="/post/index.html?id=${this.prevPost.id}"><i class="nf nf-fa-chevron_left"></i>Les forrige post</a>
-              <span class="sidebar-box-title">${this.prevPost.title}</span>
-              <span class="sidebar-box-author">${this.prevPost.author.name}</span>
-            </div>
+      <div class="sidebar-prev-box">
+        <div class="sidebar-box-card">
+          <img src="${this.prevPost.media.url}" />
+          <div class="sidebar-box-content">
+            <a href="/post/index.html?id=${this.prevPost.id}"><i class="nf nf-fa-chevron_left"></i> Les forrige post</a>
+            <span class="sidebar-box-title">${this.prevPost.title}</span>
+            <span class="sidebar-box-author">${this.prevPost.author.name}</span>
           </div>
         </div>
+      </div>
 
-        <div class="sidebar-next-box">
-          <div class="sidebar-box-card">
-              <img src="${this.nextPost.media.url}" />
-              <div class="sidebar-box-content">
-                  <a href="/post/index.html?id=${this.nextPost.id}">Les neste post <i class="nf nf-fa-chevron_right"></i></a>
-                  <span class="sidebar-box-title">${this.nextPost.title}</span>
-                  <span class="sidebar-box-author">${this.nextPost.author.name}</span>
-              </div>
+      <div class="sidebar-next-box">
+        <div class="sidebar-box-card">
+          <img src="${this.nextPost.media.url}" />
+          <div class="sidebar-box-content">
+            <a href="/post/index.html?id=${this.nextPost.id}">Les neste post <i class="nf nf-fa-chevron_right"></i></a>
+            <span class="sidebar-box-title">${this.nextPost.title}</span>
+            <span class="sidebar-box-author">${this.nextPost.author.name}</span>
           </div>
         </div>
+      </div>
     `;
   }
 }
+
 export default SidebarComponent;

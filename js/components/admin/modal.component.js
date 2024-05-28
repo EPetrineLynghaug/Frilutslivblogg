@@ -2,9 +2,10 @@ class ModalComponent extends HTMLElement {
   constructor(post, callback) {
     super();
 
-    this.confirmText = "ja jeg vil slette posten";
     this.post = post;
     this.callback = callback;
+
+    this.confirmText = "ja jeg vil slette posten";
   }
 
   connectedCallback() {
@@ -14,20 +15,20 @@ class ModalComponent extends HTMLElement {
 
   render() {
     this.innerHTML = `
-        <div class="modal-card">
-            <div class="modal-header">
-                <div class="title">Slett posten?</div>
-                <div class="description">
-                    Er du sikker på at du vil slette: ${this.post.title}?
-                </div>
-            </div>
-            <span>Bekreft med å skrive: ${this.confirmText}</span>
-            <input type="text" id="modal-input" placeholder="${this.confirmText}">
-            <div class="modal-actions">
-                <button id="modal-cancel" class="btn">Avbryt</button>
-                <button id="modal-confirm" class="btn slett-btn" disabled>Slett</button>
-            </div>
+      <div class="modal-card">
+        <div class="modal-header">
+          <div class="title">Slett posten?</div>
+          <div class="description">
+            Er du sikker på at du vil slette: ${this.post.title}?
+          </div>
         </div>
+        <span>Bekreft med å skrive: ${this.confirmText}</span>
+        <input type="text" id="modal-input" placeholder="${this.confirmText}">
+        <div class="modal-actions">
+          <button id="modal-cancel" class="btn">Avbryt</button>
+          <button id="modal-confirm" class="btn slett-btn" disabled>Slett</button>
+        </div>
+      </div>
     `;
   }
 

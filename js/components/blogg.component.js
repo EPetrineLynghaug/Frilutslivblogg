@@ -1,12 +1,13 @@
-import Card from "./card.component.js";
 import BloggService from "../services/blogg.service.js";
+import Card from "./card.component.js";
 
 class BloggCards extends HTMLElement {
   constructor() {
     super();
 
-    this.postContainer = document.querySelector(".post-container");
     this.bloggService = new BloggService();
+
+    this.postContainer = document.querySelector(".post-container");
   }
 
   connectedCallback() {
@@ -18,14 +19,16 @@ class BloggCards extends HTMLElement {
 
     this.classList.add("post-container");
     allPosts.map((post) => {
-      let newCard = new Card(
-        post.id,
-        post.media,
-        post.title,
-        post.body,
-        post.author.name,
-        post.created
-      );
+      let newPost = {
+        id: post.id,
+        media: post.media,
+        title: post.title,
+        body: post.body,
+        author: post.author.name,
+        created: post.created
+      };
+
+      let newCard = new Card(newPost);
       this.append(newCard);
     });
   }

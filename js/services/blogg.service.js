@@ -2,17 +2,9 @@ import AuthService from "./auth.service.js";
 
 class BloggService {
   constructor() {
-    this.baseUrl = "https://v2.api.noroff.dev/blog/posts/petrine";
     this.AuthService = new AuthService();
-  }
 
-  getAccessToken() {
-    let token = localStorage.getItem("token");
-
-    if (token) {
-      token = JSON.parse(token);
-      return token;
-    }
+    this.baseUrl = "https://v2.api.noroff.dev/blog/posts/petrine";
   }
 
   async createPost(post) {
@@ -39,8 +31,7 @@ class BloggService {
 
   async editPost(post, id) {
     try {
-      console.log(post);
-      const token = this.getAccessToken();
+      const token = this.AuthService.getAccessToken();
 
       let response = await fetch(`${this.baseUrl}/${id}`, {
         method: "PUT",
@@ -62,13 +53,13 @@ class BloggService {
 
   async deletePost(id) {
     try {
-      const token = this.getAccessToken();
+      const token = this.AuthService.getAccessToken();
 
       const response = await fetch(`${this.baseUrl}/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${this.getAccessToken()}`,
+          Authorization: `Bearer ${token}`,
         },
       });
       const res = await response.json();
@@ -84,7 +75,7 @@ class BloggService {
 
   async getAllPosts(limit = null) {
     try {
-      const token = this.getAccessToken();
+      const token = this.AuthService.getAccessToken();
 
       let url = this.baseUrl; // https://v2.api.noroff.dev/blog/posts/petrine
       if (limit) {

@@ -10,6 +10,7 @@ class SinglePost extends HTMLElement {
 
   async connectedCallback() {
     await this.getSinglePost();
+
     this.render();
     this.listener();
   }
@@ -23,25 +24,24 @@ class SinglePost extends HTMLElement {
 
   render() {
     this.classList.add("single-post-page");
+
     this.innerHTML = `
       <img src="${
-        this.post.media && this.post.media.url
-          ? this.post.media.url
-          : "https://picsum.photos/1920/750"
-      }" alt="${
-      this.post.media && this.post.media.alt
-        ? this.post.media.alt
-        : "Lorem ipsum bilde"
-    }" />
+          this.post.media && this.post.media.url
+            ? this.post.media.url
+            : "https://picsum.photos/1920/750"
+        }"
+        alt="${
+        this.post.media && this.post.media.alt
+          ? this.post.media.alt
+          : "Lorem ipsum bilde"
+        }"
+      />
       <div class="single-post-wrapper">
         <div class="single-post-content">
           <div class="author">
             <div>
-              <span class="light-text">Skrevet</span> ${new Date(
-                this.post.created
-              ).toDateString()} <span class="light-text">av</span> ${
-      this.post.author.name
-    }
+              <span class="light-text">Skrevet</span> ${new Date( this.post.created).toDateString()} <span class="light-text">av</span> ${ this.post.author.name }
             </div>
           </div>
           <h1>${this.post.title}</h1>

@@ -15,30 +15,30 @@ class Login extends HTMLElement {
   render() {
     this.classList.add("login");
     this.innerHTML = `
-    <div class="notification hidden">
-    <span class="notification-title"></span>
-    <span class="notification-body"></span>
-  </div>
-        <img src="../media/Eventyrer.JPG" alt="branding" style="width:100%">
-        <div class="login-container">
-          <form>
-            <div class="input-wrapper">
-             <label for="Email">Email:</label>
-              <input type="email" id="Email" name="Email" placeholder="Skriv inn e-post">
-            </div>
-            
-            <div class="input-wrapper">
-              <label for="Passord">Passord:</label>
-              <input type="password" id="Passord" name="Passord" placeholder="Skriv inn passord">
-            </div>
+      <div class="notification hidden">
+        <span class="notification-title"></span>
+        <span class="notification-body"></span>
+      </div>
+      <img src="../media/Eventyrer.JPG" alt="branding" style="width:100%">
+      <div class="login-container">
+        <form>
+          <div class="input-wrapper">
+            <label for="Email">Email:</label>
+            <input type="email" id="Email" name="Email" placeholder="Skriv inn e-post">
+          </div>
+          
+          <div class="input-wrapper">
+            <label for="Passord">Passord:</label>
+            <input type="password" id="Passord" name="Passord" placeholder="Skriv inn passord">
+          </div>
 
-            <div class="actions">
-              <a href="/account/register.html">Registrer</a>
-            <button type="button" class="btn login-btn">Logg in</button>
-            </div>
-          </form>
-        </div>
-      `;
+          <div class="actions">
+            <a href="/account/register.html">Registrer</a>
+          <button type="button" class="btn login-btn">Logg in</button>
+          </div>
+        </form>
+      </div>
+    `;
   }
 
   listener() {

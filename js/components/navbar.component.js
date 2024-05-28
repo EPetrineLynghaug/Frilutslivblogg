@@ -1,9 +1,8 @@
-// Create a class for the element
 class Navbar extends HTMLElement {
   constructor() {
     super();
-    this.menuOpen = false;
 
+    this.menuOpen = false;
     this.menu = [
       {
         text: "Hjem",
@@ -17,8 +16,8 @@ class Navbar extends HTMLElement {
   } 
 
   currentPage(pagePath) {
-    const pathname = window.location.pathname;
-    return pagePath === pathname ? true : false;
+    const pathName = window.location.pathname;
+    return pagePath === pathName ? true : false;
   }
 
   connectedCallback() {

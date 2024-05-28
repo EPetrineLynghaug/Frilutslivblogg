@@ -1,14 +1,14 @@
 class Card extends HTMLElement {
-  constructor(id, image, title, body, author, created) {
+  constructor(post) { // id, image, title, body, author, created
     super();
-    this.id = id;
-    this.title = title;
-    this.author = author;
-    this.created = new Date(created).toDateString();
+    this.id = post.id;
+    this.title = post.title;
+    this.author = post.author;
+    this.created = new Date(post.created).toDateString();
 
-    this.img = image ? image.url : "https://picsum.photos/200";
-    this.alt = image ? image.alt : "Lorem Picsum: The Lorem Ipsum for photos";
-    this.body = body ? body : "";
+    this.img = post.media ? post.media.url : "https://picsum.photos/200";
+    this.alt = post.media ? post.media.alt : "Lorem Picsum: The Lorem Ipsum for photos";
+    this.body = post.body ? post.body : "";
   }
 
   connectedCallback() {

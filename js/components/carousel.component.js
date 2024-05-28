@@ -5,9 +5,9 @@ class Carousel extends HTMLElement {
     super();
     this.bloggService = new BloggService();
 
+    this.slides = [];
     this.autoPlay = true;
     this.activeSlideIndex = 0;
-    this.slides = [];
   }
 
   async getPosts() {
@@ -46,6 +46,7 @@ class Carousel extends HTMLElement {
 
   render() {
     this.classList.add("carousel");
+
     this.innerHTML = `
       ${this.slides.map((slide) => this.newSlide(slide)).join("")}
 
@@ -120,6 +121,13 @@ class Carousel extends HTMLElement {
 
     allSlides[0].classList.add("active");
     allIndicators[0].classList.add("active");
+
+    allIndicators.forEach((indicator, index) => {
+      indicator.addEventListener("click", (event) => {
+        this.activeSlideIndex = index;
+        this.updateSlides(allSlides, allIndicators);
+      });
+    });
 
     prevButton.addEventListener("click", (event) => {
       event.preventDefault();

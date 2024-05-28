@@ -11,14 +11,16 @@ class CreatePost extends HTMLElement {
 
   connectedCallback() {
     if (!this.authService.isLoggedIn()) {
-      window.location.href = '/account/login.html';
+      window.location.href = "/account/login.html";
     }
 
-    this.render().listener();
+    this.render();
+    this.listener();
   }
 
   render() {
     this.classList.add("make-container");
+
     this.innerHTML = `
       <form id="blogForm" enctype="multipart/form-data">
         <div class="notification hidden">
@@ -37,8 +39,6 @@ class CreatePost extends HTMLElement {
         </div>
       </form>
     `;
-
-    return this;
   }
 
   listener() {
@@ -79,8 +79,6 @@ class CreatePost extends HTMLElement {
           "Posten ble ikke opprettet, sjekk at du er logget inn!";
       }
     });
-
-    return this;
   }
 }
 export default CreatePost;

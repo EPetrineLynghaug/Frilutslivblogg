@@ -15,26 +15,26 @@ class Register extends HTMLElement {
   render() {
     this.classList.add("register");
     this.innerHTML = `
-    <div class="notification hidden">
-    <span class="notification-title"></span>
-    <span class="notification-body"></span>
-  </div>
+      <div class="notification hidden">
+        <span class="notification-title"></span>
+        <span class="notification-body"></span>
+      </div>
       <img src="../media/Eventyrer.JPG" alt="Bilde" style="width:100%">
       <div class="register-container">
         <form>
           <div class="input-wrapper">
-          <label for="Name">Name:</label>
-          <input type="name" id="Name" name="Name" placeholder="Skriv inn Fornavn og etternavn">
+            <label for="Name">Name:</label>
+            <input type="name" id="Name" name="Name" placeholder="Skriv inn Fornavn og etternavn">
           </div>
 
           <div class="input-wrapper">
-          <label for="Email">Email:</label>
-          <input type="email" id="Email" name="Email" placeholder="Skriv inn e-post">
+            <label for="Email">Email:</label>
+            <input type="email" id="Email" name="Email" placeholder="Skriv inn e-post">
           </div>
 
           <div class="input-wrapper">
-          <label for="Passord">Passord:</label>
-          <input type="password" id="Passord" name="Passord" placeholder="Skriv inn passord">
+            <label for="Passord">Passord:</label>
+            <input type="password" id="Passord" name="Passord" placeholder="Skriv inn passord">
           </div>
           
           <button type="button" class="btn registrer-btn">Registrer deg</button>
@@ -99,7 +99,7 @@ class Register extends HTMLElement {
         notify.classList.remove("hidden");
         notify.classList.add("error");
         notifyTitle.innerHTML = "Register feilet!";
-        notifyBody.innerHTML = "Registreringen feilet, prøv igjen. ";
+        notifyBody.innerHTML = "Registreringen feilet, prøv igjen.";
       }
     });
   }
