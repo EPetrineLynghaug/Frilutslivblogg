@@ -61,7 +61,11 @@ class Register extends HTMLElement {
       submitButton.disabled = true;
 
       if (nameInput.value.length <= 1) {
-        console.log("For kort navn, navn må være mer en 1 tegn.");
+        notify.classList.remove("hidden");
+        notify.classList.add("error");
+        notifyTitle.innerHTML = "Ugyldig brukernavn";
+        notifyBody.innerHTML =
+          "Navnet må være minst 2 bokstaver.";
         return;
       }
 
