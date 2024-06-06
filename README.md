@@ -1,24 +1,33 @@
-# Frilutslivblogg
-Eksamen i Html, CSS og JS 
-
-Se min eksamen her 
+# Summer 2024 Exam, Blogg. 
 https://friluftslivbloggen.netlify.app/
-________________________________
-Report: Emphasizing Component-Based Coding in JavaScript
 
-In this project, I have chosen to focus on learning component-based coding.
-Advantages of Component-Based Coding in Plain JavaScript
+![image](./media/blogg.png)
 
-Adopting a component-based approach in JavaScript, even without libraries like React, offers several significant benefits:
 
-   1. Reusability: Components can be easily reused across the application, reducing repetitive code and enhancing development efficiency.
+## Description
+For our exam, we were assigned to create a blog with a topic of our choice. The blog needed to have a functional login system, a feature to delete posts, edit posts, and create new posts. Additionally, it had to include a carousel that stops when hovered over, rather than operating automatically. All images had to be incorporated via URLs through an API.
 
-   2.  Modularity: Each component encapsulates its own logic and style, making the codebase more organized, structured, and easier to maintain.
+My blog focused on outdoor activities. I chose to concentrate on component-based JavaScript for this project, which proved to be very educational.
 
-    3. Scalability: By breaking the application into smaller, manageable components, it becomes easier to scale and expand functionality.
 
-   4.  Improved Testability: Isolated components can be tested individually, leading to more reliable code and simpler debugging.
+## Built With
 
-    5. Simplified Debugging: Clearly defined component boundaries make it easier to locate and fix errors, improving error handling and reducing development time.
+You can list a the tech stack that you've used over here
+- Javascript
+- CSS
+- HTML
 
-By implementing a component-based architecture, one achieves a more robust, maintainable, and efficient development process, even when working with plain JavaScript.
+## Getting Started
+
+### Installing
+
+1. Clone the repo:
+
+```bash
+git git@github.com:EPetrineLynghaug/Frilutslivblogg.git
+```
+
+## Contact
+
+- [My LinkedIn page](https://www.linkedin.com/in/petrine-lynghaug/)
+- Petrinelynghaug@gmail.com
